@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b01cea2-9758-4bce-9cb9-67f526b7fad0" name="Changes" comment="Changes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="enabledProfiles">
+      <list>
+        <option value="runAddAndSubtractTests" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1w89BAGn0GG2VYbQ9Bqx6VFxCYv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/calculator-1.0.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\AleksandrIablonskikh" />
+      <recent name="D:\IdeaProjects\AleksandrIablonskikh\src" />
+      <recent name="D:\IdeaProjects\AleksandrIablonskikh\src\test" />
+      <recent name="D:\IdeaProjects\Aleksandr_Iablonskikh\src\test\java\resources\testng" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.Exercise2">
+    <configuration name="CalculatorDivideTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AleksandrIablonskikh" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.epam.tc.hw1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.epam.tc.hw1" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.CalculatorDivideTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorMultiplyTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AleksandrIablonskikh" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.epam.tc.hw1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.epam.tc.hw1" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.CalculatorMultiplyTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/IdeaProjects/Aleksandr_Iablonskikh/src/test/java/resources/runAddAndSubtractTests.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Aleksandr_Iablonskikh" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/resources/runAddAndSubtractTests.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise1.firstExerciseTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AleksandrIablonskikh" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hw2.ex1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hw2.ex1" />
+      <option name="MAIN_CLASS_NAME" value="hw2.ex1.Exercise1" />
+      <option name="METHOD_NAME" value="firstExerciseTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AleksandrIablonskikh" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hw2.ex2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hw2.ex2" />
+      <option name="MAIN_CLASS_NAME" value="hw2.ex2.Exercise2" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.Exercise2" />
+        <item itemvalue="TestNG.Exercise1.firstExerciseTest" />
+        <item itemvalue="TestNG.CalculatorMultiplyTest" />
+        <item itemvalue="TestNG.CalculatorDivideTest" />
+        <item itemvalue="TestNG.D:/IdeaProjects/Aleksandr_Iablonskikh/src/test/java/resources/runAddAndSubtractTests.xml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b01cea2-9758-4bce-9cb9-67f526b7fad0" name="Changes" comment="" />
+      <created>1627829213023</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627829213023</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
