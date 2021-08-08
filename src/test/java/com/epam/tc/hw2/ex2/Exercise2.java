@@ -1,4 +1,4 @@
-package hw2.ex2;
+package com.epam.tc.hw2.ex2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -62,7 +62,7 @@ public class Exercise2 {
 
 //        5. Open through the header menu Service -> Different Elements Page
 
-        webElement = webDriver.findElement(By.cssSelector(".dropdown-toggle"));
+        webElement = webDriver.findElement(By.className("dropdown-toggle"));
         webElement.click();
 
         webElement = webDriver.findElement(By.xpath("//*[text()='Different elements']"));
@@ -70,13 +70,13 @@ public class Exercise2 {
 
 ////        6. Select checkboxes
 
-        List<WebElement> checkBoxesList = webDriver.findElements(By.cssSelector(".label-checkbox"));
+        List<WebElement> checkBoxesList = webDriver.findElements(By.className("label-checkbox"));
         checkBoxesList.get(0).click();
         checkBoxesList.get(2).click();
 
 //        7. Select radio
 
-        List<WebElement> radioList = webDriver.findElements(By.cssSelector(".label-radio"));
+        List<WebElement> radioList = webDriver.findElements(By.className("label-radio"));
         radioList.get(3).click();
 
 //        8. Select in dropdown

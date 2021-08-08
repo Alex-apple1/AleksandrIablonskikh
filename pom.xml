@@ -109,6 +109,14 @@
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
+        <profile>
+            <id>runHW2Tests</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/runHW2Tests.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>

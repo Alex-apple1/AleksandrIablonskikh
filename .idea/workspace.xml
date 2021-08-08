@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b01cea2-9758-4bce-9cb9-67f526b7fad0" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hw2/ex1/Exercise1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hw2/ex2/Exercise2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/calculator_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AleksandrIablonskikh.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/resources/testng/runExercise1AndExercise2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/checkstyle-cachefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/checkstyle-checker.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/checkstyle-result.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hw2/ex1/Exercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw2/ex1/Exercise1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hw2/ex2/Exercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw2/ex2/Exercise2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +39,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/calculator-1.0.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/resources/testng" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\AleksandrIablonskikh\src\test\java\resources\testng" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\AleksandrIablonskikh" />
       <recent name="D:\IdeaProjects\AleksandrIablonskikh\src" />
@@ -58,24 +56,7 @@
       <recent name="D:\IdeaProjects\Aleksandr_Iablonskikh\src\test\java\resources\testng" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Exercise2">
-    <configuration name="CalculatorDivideTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="AleksandrIablonskikh" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.epam.tc.hw1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.epam.tc.hw1" />
-      <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.CalculatorDivideTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.D:/IdeaProjects/AleksandrIablonskikh/src/test/java/resources/testng/runHW2Tests.xml">
     <configuration name="CalculatorMultiplyTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="AleksandrIablonskikh" />
       <extension name="coverage">
@@ -87,6 +68,16 @@
       <option name="PACKAGE_NAME" value="com.epam.tc.hw1" />
       <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.CalculatorMultiplyTest" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/IdeaProjects/AleksandrIablonskikh/src/test/java/resources/testng/runHW2Tests.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AleksandrIablonskikh" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/resources/testng/runHW2Tests.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -147,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.Exercise2" />
+        <item itemvalue="TestNG.D:/IdeaProjects/AleksandrIablonskikh/src/test/java/resources/testng/runHW2Tests.xml" />
         <item itemvalue="TestNG.Exercise1" />
+        <item itemvalue="TestNG.Exercise2" />
         <item itemvalue="TestNG.Exercise1.firstExerciseTest" />
         <item itemvalue="TestNG.CalculatorMultiplyTest" />
-        <item itemvalue="TestNG.CalculatorDivideTest" />
       </list>
     </recent_temporary>
   </component>

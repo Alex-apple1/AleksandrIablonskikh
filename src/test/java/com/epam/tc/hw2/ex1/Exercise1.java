@@ -1,4 +1,4 @@
-package hw2.ex1;
+package com.epam.tc.hw2.ex1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,12 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 public class Exercise1 {
     private WebDriver webDriver;
@@ -92,25 +87,25 @@ public class Exercise1 {
 
 //        6. Assert that there are 4 images on the Index Page and they are displayed
 
-        webElement = webDriver.findElement(By.cssSelector(".icons-benefit"));
+        webElement = webDriver.findElement(By.className("icons-benefit"));
         boolean indexPageMicroscopePicture = webElement.isDisplayed();
         assertThat(indexPageMicroscopePicture)
                 .as("Index page microscope picture")
                 .isTrue();
 
-        webElement = webDriver.findElement(By.cssSelector(".icon-custom"));
+        webElement = webDriver.findElement(By.className("icon-custom"));
         boolean indexPageHeadphonePicture = webElement.isDisplayed();
         assertThat(indexPageHeadphonePicture)
                 .as("Index page headphone picture")
                 .isTrue();
 
-        webElement = webDriver.findElement(By.cssSelector(".icon-multi"));
+        webElement = webDriver.findElement(By.className("icon-multi"));
         boolean indexPageScreenPicture = webElement.isDisplayed();
         assertThat(indexPageScreenPicture)
                 .as("Index page screen picture")
                 .isTrue();
 
-        webElement = webDriver.findElement(By.cssSelector(".icon-base"));
+        webElement = webDriver.findElement(By.className("icon-base"));
         boolean indexPageRocketPicture = webElement.isDisplayed();
         assertThat(indexPageRocketPicture)
                 .as("Index page rocket picture")
@@ -144,7 +139,7 @@ public class Exercise1 {
 
 //        8. Assert that there is the iframe with “Frame Button” exist
 
-        webElement = webDriver.findElement(By.cssSelector("#frame"));
+        webElement = webDriver.findElement(By.id("frame"));
         boolean iframeExist = webElement.isEnabled();
         assertThat(iframeExist)
                 .as("Iframe exist")
