@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b01cea2-9758-4bce-9cb9-67f526b7fad0" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/AleksandrIablonskikh.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resources/testng/runExercise1AndExercise2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hw2/ex1/Exercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw2/ex1/Exercise1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hw2/ex2/Exercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw2/ex2/Exercise2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +21,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="enabledProfiles">
+      <list>
+        <option value="runHW2Tests" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1w89BAGn0GG2VYbQ9Bqx6VFxCYv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
