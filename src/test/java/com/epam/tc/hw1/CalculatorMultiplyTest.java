@@ -5,15 +5,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.Test;
 
+public class CalculatorMultiplyTest extends ParentCalculatorClass {
 
-public class CalculatorMultiplyTest {
-    Calculator calculator = new Calculator();
-
-    @Test(dataProvider = "")
-    public void multiplyTest() {
-        double actualResult = calculator.mult(2,2);
+    @Test(dataProviderClass = DataProviders.class,
+            dataProvider = "multiplication data")
+    public void multiplyTest(double num1, double num2, double result) {
+        double actualResult = calculator.mult(num1, num2);
         assertThat(actualResult)
-                .as("Multiplication results")
-                .isEqualTo(4);
+                .as("Multiplication result")
+                .isEqualTo(result);
     }
+
 }

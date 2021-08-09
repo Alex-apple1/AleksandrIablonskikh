@@ -5,14 +5,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.Test;
 
-public class CalculatorDivideTest {
-    Calculator calculator = new Calculator();
+public class CalculatorDivideTest extends ParentCalculatorClass {
 
-    @Test(dataProvider = "")
-    public void divideTest() {
-        double actualResult = calculator.div(2,2);
+    @Test(dataProviderClass = DataProviders.class,
+            dataProvider = "division data")
+    public void divideTest(double num1, double num2, double result) {
+        double actualResult = calculator.div(num1, num2);
         assertThat(actualResult)
-                .as("Dividing result")
-                .isEqualTo(1);
+                .as("Division result")
+                .isEqualTo(result);
     }
 }

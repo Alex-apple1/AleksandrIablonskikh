@@ -4,8 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Aleksandr_Iablonskikh1</artifactId>
+    <artifactId>AleksandrIablonskikh</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <groupId>com.epam.tc</groupId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -17,6 +18,7 @@
             ${project.build.testOutputDirectory}/testng/runAllTests.xml
         </maven-surefire-plugin.suiteXmlFile>
 
+        <checkstyle.version>8.42</checkstyle.version>
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.4.1</assertj-core.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
@@ -27,21 +29,53 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>
+                        <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
+                        https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
+                    </configLocation>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
-<!--                <configuration>-->
-<!--&lt;!&ndash;                    <suiteXmlFiles>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <suiteXmlFile>${maven-surefire-plugin.suiteXmlFile}</suiteXmlFile>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </suiteXmlFiles>&ndash;&gt;-->
-<!--                </configuration>-->
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${maven-surefire-plugin.suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.11</source>
+                    <!--                    <target>1.11</target>-->
                 </configuration>
             </plugin>
         </plugins>
@@ -75,15 +109,29 @@
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
+        <profile>
+            <id>runHW3Tests</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/runHW3Tests.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
+                <dependency>
+                    <groupId>calculator</groupId>
+                    <artifactId>calculator</artifactId>
+                    <scope>system</scope>
+                    <version>1.0</version>
+                    <systemPath>${project.basedir}/lib/calculator-1.0.jar</systemPath>
+                </dependency>
         <dependency>
-            <groupId>calculator</groupId>
-            <artifactId>calculator</artifactId>
-            <scope>system</scope>
-            <version>1.0</version>
-            <systemPath>${project.basedir}/lib/calculator-1.0.jar</systemPath>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -97,5 +145,41 @@
             <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>4.0.0-alpha-7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>6.9.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.0.0-alpha-7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
     </dependencies>
 </project>
