@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.ex1;
+package com.epam.tc.hw4.ex1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -6,9 +6,7 @@ import com.epam.tc.hw3.pages.FrontPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 

@@ -23,6 +23,8 @@
         <assertj-core.version>3.4.1</assertj-core.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
     <build>
@@ -37,6 +39,7 @@
                         <artifactId>checkstyle</artifactId>
                         <version>${checkstyle.version}</version>
                     </dependency>
+
                 </dependencies>
                 <configuration>
                     <configLocation>
@@ -64,51 +67,76 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>${maven-surefire-plugin.suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>1.11</source>
-                    <!--                    <target>1.11</target>-->
-                </configuration>
+<!--                <configuration>-->
+<!--                    <source>1.11</source>-->
+<!--                    &lt;!&ndash;                    <target>1.11</target>&ndash;&gt;-->
+<!--                </configuration>-->
             </plugin>
         </plugins>
     </build>
 
     <profiles>
+<!--        <profile>-->
+<!--            <id>runAddAndSubtractTests</id>-->
+<!--&lt;!&ndash;            <activation>&ndash;&gt;-->
+<!--&lt;!&ndash;                <activeByDefault>true</activeByDefault>&ndash;&gt;-->
+<!--&lt;!&ndash;            </activation>&ndash;&gt;-->
+<!--            <properties>-->
+<!--                <maven-surefire-plugin.suiteXmlFile>-->
+<!--                    ${project.build.testOutputDirectory}/testng/runAddAndSubtractTests.xml-->
+<!--                </maven-surefire-plugin.suiteXmlFile>-->
+<!--            </properties>-->
+<!--        </profile>-->
         <profile>
-            <id>runAddAndSubtractTests</id>
+            <id>runHW4Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>
-                    ${project.build.testOutputDirectory}/testng/runAddAndSubtractTests.xml
-                </maven-surefire-plugin.suiteXmlFile>
+<!--                <maven-surefire-plugin.suiteXmlFile>-->
+<!--                    ${project.build.testOutputDirectory}/testng/hw4.class.suite.xml-->
+<!--                </maven-surefire-plugin.suiteXmlFile>-->
+                <testng.suite.file>
+                    ${project.build.testOutputDirectory}/testng/hw4.class.suite.xml
+                </testng.suite.file>
             </properties>
         </profile>
-        <profile>
-            <id>runAllTests</id>
-            <properties>
-                <maven-surefire-plugin.suiteXmlFile>
-                    ${project.build.testOutputDirectory}/testng/runAllTests.xml
-                </maven-surefire-plugin.suiteXmlFile>
-            </properties>
-        </profile>
-        <profile>
-            <id>runMultiplyAndDivideTests</id>
-            <properties>
-                <maven-surefire-plugin.suiteXmlFile>
-                    ${project.build.testOutputDirectory}/testng/runMultiplyAndDivideTests.xml
-                </maven-surefire-plugin.suiteXmlFile>
-            </properties>
-        </profile>
+<!--        <profile>-->
+<!--            <id>runAllTests</id>-->
+<!--            <properties>-->
+<!--                <maven-surefire-plugin.suiteXmlFile>-->
+<!--                    ${project.build.testOutputDirectory}/testng/runAllTests.xml-->
+<!--                </maven-surefire-plugin.suiteXmlFile>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>runMultiplyAndDivideTests</id>-->
+<!--            <properties>-->
+<!--                <maven-surefire-plugin.suiteXmlFile>-->
+<!--                    ${project.build.testOutputDirectory}/testng/runMultiplyAndDivideTests.xml-->
+<!--                </maven-surefire-plugin.suiteXmlFile>-->
+<!--            </properties>-->
+<!--        </profile>-->
         <profile>
             <id>runHW3Tests</id>
             <properties>
@@ -120,6 +148,19 @@
     </profiles>
 
     <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.13.2</version>
+            <scope>test</scope>
+        </dependency>
         <!--        <dependency>-->
         <!--            <groupId>calculator</groupId>-->
         <!--            <artifactId>calculator</artifactId>-->
@@ -132,6 +173,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>4.4.3</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -180,6 +226,19 @@
             <artifactId>selenium-support</artifactId>
             <version>3.141.59</version>
         </dependency>
-
     </dependencies>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

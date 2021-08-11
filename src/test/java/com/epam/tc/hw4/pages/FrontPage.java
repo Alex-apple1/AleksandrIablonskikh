@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.pages;
+package com.epam.tc.hw4.pages;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

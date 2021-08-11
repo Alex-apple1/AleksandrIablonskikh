@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.ex2;
+package com.epam.tc.hw4.ex2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
