@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b01cea2-9758-4bce-9cb9-67f526b7fad0" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw3/ex1/Exercise1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw3/ex2/Exercise2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw3/pages/DifferentElementsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw3/pages/FrontPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resources/test.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resources/testng/runHW3Tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +25,7 @@
   <component name="MavenImportPreferences">
     <option name="enabledProfiles">
       <list>
-        <option value="runHW3Tests" />
+        <option value="runAddAndSubtractTests" />
       </list>
     </option>
   </component>
