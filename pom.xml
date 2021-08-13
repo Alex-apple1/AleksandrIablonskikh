@@ -21,6 +21,7 @@
         <assertj-core.version>3.4.1</assertj-core.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
 
     <build>
@@ -93,12 +94,6 @@
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/runMultiplyAndDivideTests.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
-        <profile>
-            <id>runHW3Tests</id>
-            <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/runHW3Tests.xml</maven-surefire-plugin.suiteXmlFile>
-            </properties>
-        </profile>
     </profiles>
 
     <dependencies>
@@ -133,18 +128,12 @@
             <version>4.0.0-alpha-7</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>6.9.1</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>${junit.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
