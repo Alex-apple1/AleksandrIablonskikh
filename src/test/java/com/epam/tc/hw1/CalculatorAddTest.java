@@ -1,4 +1,4 @@
-package com.epam.tc.hw1.addAndSubtractTestsPackage;
+package com.epam.tc.hw1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
