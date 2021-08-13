@@ -2,6 +2,8 @@ package com.epam.tc.hw4.pages;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import io.qameta.allure.Step;
+import lombok.experimental.UtilityClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,7 +20,6 @@ public class FrontPage {
     private String expectedHeaderItemContactForm = "CONTACT FORM";
     private String expectedHeaderItemService = "SERVICE";
     private String expectedHeaderItemMetalsAndColors = "METALS & COLORS";
-
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;

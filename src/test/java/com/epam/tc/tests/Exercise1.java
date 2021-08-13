@@ -1,13 +1,19 @@
-package com.epam.tc.hw3.ex1;
+package com.epam.tc.tests;
 
+import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.epam.tc.hw3.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Exercise1 {
@@ -16,12 +22,13 @@ public class Exercise1 {
     private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
     private String nextUrl = "https://jdi-testing.github.io/jdi-light/contacts.html";
 
-    @BeforeMethod
+    @Before
+    @Description("This is description")
     public void setUp() {
         WebDriverManager.chromedriver().setup();
     }
 
-    @AfterMethod
+    @After
     public void clear() {
         webDriver.close();
     }
@@ -31,45 +38,44 @@ public class Exercise1 {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
 
-        FrontPage frontPage = new FrontPage(webDriver);
+        final FrontPage frontPage = new FrontPage(webDriver);
 
-        //        1. Open test site by URL
+        step("Open test site by URL");
 
         webDriver.navigate()
                  .to(frontPageUrl);
 
-        //        2. Assert Browser title
+        step("Assert Browser title");
 
         assertThat(webDriver.getTitle())
             .as("Opening Home Page").isEqualTo("Home Page");
 
-        //        3. Perform log in
+        step("Perform log in");
 
         frontPage.findUserIconAndClick();
         frontPage.fillUserNameIn();
         frontPage.fillUserPasswordIn();
         frontPage.pressLoginButton();
 
-        //        4. Assert Username is logged in
+        step("Assert Username is logged in");
 
         frontPage.assertUserAccountName();
-
-        //        5. Assert that there are 4 items on the header section are displayed
-        //        and they have proper texts
+        step("Assert that there are 4 items on the header section are displayed\n"
+            + "        //        and they have proper texts");
 
         frontPage.assertHeaderItemHome();
         frontPage.assertHeaderItemContactForm();
         frontPage.assertHeaderItemService();
         frontPage.assertHeaderItemMetalsAndColors();
 
-        //        6. Assert that there are 4 images on the Index Page and they are displayed
+        step("Assert that there are 4 images on the Index Page and they are displayed");
 
         frontPage.assertIndexPageHeadphonePicture();
         frontPage.assertIndexPageRocketPicture();
         frontPage.assertIndexPageScreenPicture();
         frontPage.assertIndexPageMicroscopePicture();
 
-        //        7. Assert that there are 4 texts on the Index Page under icons and they have proper text
+        step("Assert that there are 4 texts on the Index Page under icons and they have proper text");
 
         frontPage.assertToBeMultiplatformText();
 
@@ -97,11 +103,11 @@ public class Exercise1 {
         //                .as("Already have good base TEXT")
         //                .isEqualTo("Already have good base");
 
-        //        8. Assert that there is the iframe with “Frame Button” exist
+        step("Assert that there is the iframe with “Frame Button” exist");
 
         frontPage.assertIFrameExist();
-        //
-        ////        9. Switch to the iframe and check that there is “Frame Button” in the iframe
+
+        step("Switch to the iframe and check that there is “Frame Button” in the iframe");
 
         //        webElement = webDriver.findElement(By.cssSelector("#frame"));
         //        webElement.click();
@@ -117,12 +123,12 @@ public class Exercise1 {
         //        webDriver.switchTo().frame("frame-button");
         //        webDriver.switchTo().alert();
 
-        //        10. Switch to original window back
+        step("Switch to original window back");
 
         webDriver.navigate().to(nextUrl);
         webDriver.navigate().back();
 
-        //        11. Assert that there are 5 items in the Left Section are displayed and they have proper text
+        step("Assert that there are 5 items in the Left Section are displayed and they have proper text");
 
         frontPage.assertLeftSectionContactFormText();
         frontPage.assertLeftSectionElementsPacksText();
@@ -130,7 +136,7 @@ public class Exercise1 {
         frontPage.assertLeftSectionServiceText();
         frontPage.assertLeftSectionMetalsAndColorsText();
 
-        //        12. Close Browser
+        step("Close Browser");
 
         webDriver.close();
     }

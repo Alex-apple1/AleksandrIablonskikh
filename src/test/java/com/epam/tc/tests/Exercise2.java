@@ -1,4 +1,4 @@
-package com.epam.tc.hw4.ex2;
+package com.epam.tc.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,7 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Exercise2 {
@@ -20,12 +22,12 @@ public class Exercise2 {
     private WebElement webElement;
     private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
 
-    @BeforeMethod
+    @Before
     public void setUp() {
         WebDriverManager.chromedriver().setup();
     }
 
-    @AfterMethod
+    @After
     public void clear() {
         webDriver.close();
     }
@@ -35,7 +37,7 @@ public class Exercise2 {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
 
-        FrontPage frontPage = new FrontPage(webDriver);
+        final FrontPage frontPage = new FrontPage(webDriver);
         final DifferentElementsPage differentElementsPage = new DifferentElementsPage(webDriver);
 
         //        1. Open test site by URL
