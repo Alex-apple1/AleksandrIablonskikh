@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+.iml
 
 
 # BlueJ files
@@ -22,7 +23,7 @@
 .idea
 target
 .allure
-.iml
+
 
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
