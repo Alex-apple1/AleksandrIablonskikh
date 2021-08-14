@@ -92,65 +92,18 @@ public class Exercise1 {
 
         //        7. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
-        //        String[][] indexPageTextUnderFirstIconsArray = {
-        //            {"//*[text()='To include good practices']", "To include good practices"},
-        //            {"//*[text()='and ideas from successful']", "and ideas from successful"},
-        //            {"//*[text()='EPAM project']", "EPAM project"},
-        //            {"//*[text()='To be flexible and']", "To be flexible and"},
-        //            {"//*[text()='customizable ']", "customizable"},
-        //            {"//*[text()='To be multiplatform ']", "To be multiplatform"},
-        //            {"//*[text()='Already have good base']", "Already have good base"},
-        //            {"//*[text()='(about 20 internal and']", "(about 20 internal and"},
-        //            {"//*[text()='some external projects),']", "some external projects),"},
-        //            {"//*[text()='wish to get more…']", "wish to get more…"}
-        //
-        //        };
-        ////
-        //        for (String[] strings : indexPageTextUnderFirstIconsArray) {
-        //            webElement = webDriver.findElement(By.xpath(strings[0]));
-        //            String headerSectionText = webElement.getText();
-        //            assertThat(headerSectionText)
-        //                .as("Index page text under icons")
-        //                .isEqualTo(strings[1]);
-        //        }
+        List<WebElement> indexPageFourTexts = webDriver.findElements(By.cssSelector(".benefit-txt"));
+        assertThat(indexPageFourTexts.get(0).getText()).isEqualTo("To include good practices\n"
+            + "and ideas from successful\n"
+            + "EPAM project");
+        assertThat(indexPageFourTexts.get(1).getText()).isEqualTo("To be flexible and\n"
+            + "customizable");
+        assertThat(indexPageFourTexts.get(2).getText()).isEqualTo("To be multiplatform");
+        assertThat(indexPageFourTexts.get(3).getText()).isEqualTo("Already have good base\n"
+            + "(about 20 internal and\n"
+            + "some external projects),\n"
+            + "wish to get more…");
 
-        //        webElement = webDriver.findElement(By.xpath("//*[text()='To include good practices']"));
-        //        String toIncludeGoodPracticesText = webElement.getText();
-        //        assertThat(toIncludeGoodPracticesText)
-        //            .as("To include good practices TEXT")
-        //            .isEqualTo("To include good practices and ideas from successful EPAM project");
-//
-//        List<WebElement> textUnderIcons = webDriver.findElements(By.className("benefit-txt"));
-//        String firstText = textUnderIcons.get(1).getText();
-////        textUnderIcons.get(2).getText().contains("To be flexible and customizable");
-////        textUnderIcons.get(3).getText().contains("To be multiplatform");
-////        textUnderIcons.get(4).getText().contains("To be flexible and customizable");
-//        assertThat(firstText)
-//            .as("")
-//            .isEqualTo("To include good practices");
-
-        //        textUnderIcons.get(1).getText().contains("To include good practices and ideas from successful EPAM project");
-        //        textUnderIcons.get(2).getText().contains("To be flexible and customizable");
-        //        textUnderIcons.get(3).getText().contains("To be flexible and customizable");
-        //        textUnderIcons.get(4).getText().contains("To be flexible and customizable");
-
-        //        webElement = webDriver.findElement(By.xpath("//*[text()^='To be flexible and']"));
-        //        String toBeFlexibleText = webElement.getText();
-        //        assertThat(toBeFlexibleText)
-        //            .as("To be flexible TEXT")
-        //            .isEqualTo("To be flexible and");
-
-        webElement = webDriver.findElement(By.xpath("//*[text()='To be multiplatform ']"));
-        String toBeMultiplatformText = webElement.getText();
-        assertThat(toBeMultiplatformText)
-            .as("To be multiplatform TEXT")
-            .isEqualTo("To be multiplatform");
-
-        //        webElement = webDriver.findElement(By.xpath("//*[text()='Already have good base']"));
-        //        String alreadyHaveGoodBaseText = webElement.getText();
-        //        assertThat(alreadyHaveGoodBaseText)
-        //            .as("Already have good base TEXT")
-        //            .isEqualTo("Already have good base");
 
         //        8. Assert that there is the iframe with “Frame Button” exist
 
@@ -159,8 +112,8 @@ public class Exercise1 {
         assertThat(iframeExists)
             .as("Iframe exists")
             .isTrue();
-        //
-        ////        9. Switch to the iframe and check that there is “Frame Button” in the iframe
+
+        //        9. Switch to the iframe and check that there is “Frame Button” in the iframe
 
         webDriver.switchTo().frame("frame");
 
