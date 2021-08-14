@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.List;
+import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -91,17 +92,53 @@ public class Exercise1 {
 
         //        7. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
+        //        String[][] indexPageTextUnderFirstIconsArray = {
+        //            {"//*[text()='To include good practices']", "To include good practices"},
+        //            {"//*[text()='and ideas from successful']", "and ideas from successful"},
+        //            {"//*[text()='EPAM project']", "EPAM project"},
+        //            {"//*[text()='To be flexible and']", "To be flexible and"},
+        //            {"//*[text()='customizable ']", "customizable"},
+        //            {"//*[text()='To be multiplatform ']", "To be multiplatform"},
+        //            {"//*[text()='Already have good base']", "Already have good base"},
+        //            {"//*[text()='(about 20 internal and']", "(about 20 internal and"},
+        //            {"//*[text()='some external projects),']", "some external projects),"},
+        //            {"//*[text()='wish to get more…']", "wish to get more…"}
+        //
+        //        };
+        ////
+        //        for (String[] strings : indexPageTextUnderFirstIconsArray) {
+        //            webElement = webDriver.findElement(By.xpath(strings[0]));
+        //            String headerSectionText = webElement.getText();
+        //            assertThat(headerSectionText)
+        //                .as("Index page text under icons")
+        //                .isEqualTo(strings[1]);
+        //        }
+
         //        webElement = webDriver.findElement(By.xpath("//*[text()='To include good practices']"));
         //        String toIncludeGoodPracticesText = webElement.getText();
         //        assertThat(toIncludeGoodPracticesText)
-        //                .as("To include good practices TEXT")
-        //                .isEqualTo("To include good practices and ideas from successful EPAM project");
-        ////
+        //            .as("To include good practices TEXT")
+        //            .isEqualTo("To include good practices and ideas from successful EPAM project");
+//
+//        List<WebElement> textUnderIcons = webDriver.findElements(By.className("benefit-txt"));
+//        String firstText = textUnderIcons.get(1).getText();
+////        textUnderIcons.get(2).getText().contains("To be flexible and customizable");
+////        textUnderIcons.get(3).getText().contains("To be multiplatform");
+////        textUnderIcons.get(4).getText().contains("To be flexible and customizable");
+//        assertThat(firstText)
+//            .as("")
+//            .isEqualTo("To include good practices");
+
+        //        textUnderIcons.get(1).getText().contains("To include good practices and ideas from successful EPAM project");
+        //        textUnderIcons.get(2).getText().contains("To be flexible and customizable");
+        //        textUnderIcons.get(3).getText().contains("To be flexible and customizable");
+        //        textUnderIcons.get(4).getText().contains("To be flexible and customizable");
+
         //        webElement = webDriver.findElement(By.xpath("//*[text()^='To be flexible and']"));
         //        String toBeFlexibleText = webElement.getText();
         //        assertThat(toBeFlexibleText)
-        //                .as("To be flexible TEXT")
-        //                .isEqualTo("To be flexible and");
+        //            .as("To be flexible TEXT")
+        //            .isEqualTo("To be flexible and");
 
         webElement = webDriver.findElement(By.xpath("//*[text()='To be multiplatform ']"));
         String toBeMultiplatformText = webElement.getText();
@@ -112,36 +149,37 @@ public class Exercise1 {
         //        webElement = webDriver.findElement(By.xpath("//*[text()='Already have good base']"));
         //        String alreadyHaveGoodBaseText = webElement.getText();
         //        assertThat(alreadyHaveGoodBaseText)
-        //                .as("Already have good base TEXT")
-        //                .isEqualTo("Already have good base");
+        //            .as("Already have good base TEXT")
+        //            .isEqualTo("Already have good base");
 
         //        8. Assert that there is the iframe with “Frame Button” exist
 
         webElement = webDriver.findElement(By.id("frame"));
-        boolean iframeExist = webElement.isEnabled();
-        assertThat(iframeExist)
-            .as("Iframe exist")
+        boolean iframeExists = webElement.isEnabled();
+        assertThat(iframeExists)
+            .as("Iframe exists")
             .isTrue();
         //
         ////        9. Switch to the iframe and check that there is “Frame Button” in the iframe
 
-        //        webElement = webDriver.findElement(By.cssSelector("#frame"));
-        //        webElement.click();
-        //        webElement = webDriver.findElement(By.xpath("//*[@id='frame-button']"));
-        //        boolean frameButtonExist = webElement.isEnabled();
-        //        assertThat(frameButtonExist)
-        //                .as("Button frame exist")
-        //                .isTrue();
+        webDriver.switchTo().frame("frame");
 
-        //        String windowHandler = webDriver.getWindowHandle();
-        //        Set<String> windows = webDriver.getWindowHandles();
-        //        webDriver.switchTo().window(windowHandler);
-        //        webDriver.switchTo().frame("frame-button");
-        //        webDriver.switchTo().alert();
+        //        webElement = webDriver.findElement(By.cssSelector("#frame"));
+        //                webElement.click();
+        webElement = webDriver.findElement(By.xpath("//*[@id='frame-button']"));
+        boolean frameButtonExists = webElement.isEnabled();
+        assertThat(frameButtonExists)
+            .as("Button frame exists")
+            .isTrue();
+
+        //                String windowHandler = webDriver.getWindowHandle();
+        //                Set<String> windows = webDriver.getWindowHandles();
+        //                webDriver.switchTo().window(windowHandler);
+        //                webDriver.switchTo().frame("frame-button");
+        //                webDriver.switchTo().alert();
 
         //        10. Switch to original window back
-        webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/contacts.html");
-        webDriver.navigate().back();
+        webDriver.switchTo().defaultContent();
 
         //        11. Assert that there are 5 items in the Left Section are displayed and they have proper text
 
