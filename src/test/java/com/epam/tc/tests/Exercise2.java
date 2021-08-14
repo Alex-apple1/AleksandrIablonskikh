@@ -1,12 +1,11 @@
 package com.epam.tc.tests;
 
+import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw3.pages.DifferentElementsPage;
-import com.epam.tc.hw3.pages.FrontPage;
+import com.epam.tc.hw4.pages.DifferentElementsPage;
+import com.epam.tc.hw4.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,14 +21,14 @@ public class Exercise2 {
     private WebElement webElement;
     private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
 
-    @Before
+    @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
     }
 
-    @After
+    @AfterTest
     public void clear() {
-        webDriver.close();
+        webDriver.quit();
     }
 
     @Test
@@ -40,54 +39,54 @@ public class Exercise2 {
         final FrontPage frontPage = new FrontPage(webDriver);
         final DifferentElementsPage differentElementsPage = new DifferentElementsPage(webDriver);
 
-        //        1. Open test site by URL
+        step("1. Open test site by URL");
 
         webDriver.navigate()
                  .to(frontPageUrl);
 
-        //        2. Assert Browser title
+        step("2. Assert Browser title");
 
         assertThat(webDriver.getTitle())
             .as("Opening Home Page").isEqualTo("Home Page");
 
-        //        3. Perform log in
+        step("3. Perform log in");
 
         frontPage.findUserIconAndClick();
         frontPage.fillUserNameIn();
         frontPage.fillUserPasswordIn();
         frontPage.pressLoginButton();
 
-        //        4. Assert Username is logged in
+        step("4. Assert Username is logged in");
 
         frontPage.assertUserAccountName();
 
-        //        5. Open through the header menu Service -> Different Elements Page
+        step("5. Open through the header menu Service -> Different Elements Page");
 
         frontPage.goToDifferentElementsPage();
 
-        //        6. Select checkboxes
+        step("6. Select checkboxes");
 
         differentElementsPage.selectCheckboxes();
 
-        //        7. Select radio
+        step("7. Select radio");
 
         differentElementsPage.selectRadio();
 
-        //        8. Select in dropdown
+        step("8. Select in dropdown");
 
         differentElementsPage.selectYellowInDropdown();
 
-        //        9. Assert that
-        //for each checkbox there is an individual log row and value is corresponded to the status of checkbox
-        //for radio button there is a log row and value is corresponded to the status of radio button
-        //for dropdown there is a log row and value is corresponded to the selected value.
+        step("9. Assert that for each checkbox "
+            + "there is an individual log row and value is corresponded to the status of checkbox for radio button "
+            + "there is a log row and value is corresponded to the status of radio button for dropdown "
+            + "there is a log row and value is corresponded to the selected value.");
 
         differentElementsPage.assertCheckboxWaterLogRow();
         differentElementsPage.assertDropdownYellowColorLogRow();
         differentElementsPage.assertCheckboxWindLogRow();
         differentElementsPage.assertRadioButtonMetalLogRow();
 
-        //        10. Close Browser
+        step("10. Close Browser");
 
         webDriver.close();
     }

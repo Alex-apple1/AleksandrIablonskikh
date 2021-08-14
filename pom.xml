@@ -11,12 +11,10 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven-surefire-plugin.suiteXmlFile>
-            ${project.build.testOutputDirectory}/testng/runAllTests.xml
-        </maven-surefire-plugin.suiteXmlFile>
+        <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
+        <testng.suite.file>${testng.configs.path}/hw4.class.suite.xml</testng.suite.file>
 
         <checkstyle.version>8.42</checkstyle.version>
         <testng.version>7.4.0</testng.version>
@@ -83,79 +81,24 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-<!--                <configuration>-->
-<!--                    <source>1.11</source>-->
-<!--                    &lt;!&ndash;                    <target>1.11</target>&ndash;&gt;-->
-<!--                </configuration>-->
-            </plugin>
         </plugins>
     </build>
 
     <profiles>
-<!--        <profile>-->
-<!--            <id>runAddAndSubtractTests</id>-->
-<!--&lt;!&ndash;            <activation>&ndash;&gt;-->
-<!--&lt;!&ndash;                <activeByDefault>true</activeByDefault>&ndash;&gt;-->
-<!--&lt;!&ndash;            </activation>&ndash;&gt;-->
-<!--            <properties>-->
-<!--                <maven-surefire-plugin.suiteXmlFile>-->
-<!--                    ${project.build.testOutputDirectory}/testng/runAddAndSubtractTests.xml-->
-<!--                </maven-surefire-plugin.suiteXmlFile>-->
-<!--            </properties>-->
-<!--        </profile>-->
         <profile>
             <id>runHW4Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-<!--                <maven-surefire-plugin.suiteXmlFile>-->
-<!--                    ${project.build.testOutputDirectory}/testng/hw4.class.suite.xml-->
-<!--                </maven-surefire-plugin.suiteXmlFile>-->
-                <testng.suite.file>
-                    ${project.build.testOutputDirectory}/testng/hw4.class.suite.xml
-                </testng.suite.file>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/hw4.class.suite.xml</maven-surefire-plugin.suiteXmlFile>
+<!--                <testng.suite.file>${testng.configs.path}/testng/hw4.class.suite.xml</testng.suite.file>-->
             </properties>
         </profile>
-        <profile>
-            <id>runHW3Tests</id>
-            <properties>
-                <maven-surefire-plugin.suiteXmlFile>
-                    ${project.build.testOutputDirectory}/testng/runHW3Tests.xml
-                </maven-surefire-plugin.suiteXmlFile>
-            </properties>
-        </profile>
-<!--        <profile>-->
-<!--            <id>runAllTests</id>-->
-<!--            <properties>-->
-<!--                <maven-surefire-plugin.suiteXmlFile>-->
-<!--                    ${project.build.testOutputDirectory}/testng/runAllTests.xml-->
-<!--                </maven-surefire-plugin.suiteXmlFile>-->
-<!--            </properties>-->
-<!--        </profile>-->
-<!--        <profile>-->
-<!--            <id>runMultiplyAndDivideTests</id>-->
-<!--            <properties>-->
-<!--                <maven-surefire-plugin.suiteXmlFile>-->
-<!--                    ${project.build.testOutputDirectory}/testng/runMultiplyAndDivideTests.xml-->
-<!--                </maven-surefire-plugin.suiteXmlFile>-->
-<!--            </properties>-->
-<!--        </profile>-->
 
     </profiles>
 
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>calculator</groupId>-->
-        <!--            <artifactId>calculator</artifactId>-->
-        <!--            <scope>system</scope>-->
-        <!--            <version>1.0</version>-->
-        <!--            <systemPath>src/lib/calculator-1.0.jar</systemPath>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -190,12 +133,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

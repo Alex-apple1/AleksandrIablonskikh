@@ -2,10 +2,8 @@ package com.epam.tc.hw4.ex1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw3.pages.FrontPage;
+import com.epam.tc.hw4.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
