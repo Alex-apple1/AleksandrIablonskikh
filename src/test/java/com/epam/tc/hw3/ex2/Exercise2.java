@@ -1,29 +1,33 @@
 package com.epam.tc.hw3.ex2;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.epam.tc.hw3.pages.DifferentElementsPage;
 import com.epam.tc.hw3.pages.FrontPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class Exercise2 {
 
     private WebDriver webDriver;
     private WebElement webElement;
     private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
+    private DifferentElementsPage differentElementsPage;
+    private FrontPage frontPage;
 
-    @Before
+    @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
+    }
+
+    @AfterTest
+    public void clear() {
+        webDriver.quit();
     }
 
     @Test
@@ -31,66 +35,59 @@ public class Exercise2 {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
 
-        FrontPage frontPage = new FrontPage(webDriver);
-        DifferentElementsPage differentElementsPage = new DifferentElementsPage(webDriver);
+        frontPage = new FrontPage(webDriver);
+        differentElementsPage = new DifferentElementsPage(webDriver);
 
-//        1. Open test site by URL
+        //        1. Open test site by URL
 
         webDriver.navigate()
-                .to(frontPageUrl);
+                 .to(frontPageUrl);
 
-//        2. Assert Browser title
+        //        2. Assert Browser title
 
         assertThat(webDriver.getTitle())
-                .as("Opening Home Page").isEqualTo("Home Page");
+            .as("Opening Home Page").isEqualTo("Home Page");
 
-//        3. Perform log in
+        //        3. Perform log in
 
         frontPage.findUserIconAndClick();
         frontPage.fillUserNameIn();
         frontPage.fillUserPasswordIn();
         frontPage.pressLoginButton();
 
-//        4. Assert Username is logged in
+        //        4. Assert Username is logged in
 
         frontPage.assertUserAccountName();
 
-//        5. Open through the header menu Service -> Different Elements Page
+        //        5. Open through the header menu Service -> Different Elements Page
 
         frontPage.goToDifferentElementsPage();
 
-//        6. Select checkboxes
+        //        6. Select checkboxes
 
         differentElementsPage.selectCheckboxes();
 
-//        7. Select radio
+        //        7. Select radio
 
         differentElementsPage.selectRadio();
 
-//        8. Select in dropdown
+        //        8. Select in dropdown
 
         differentElementsPage.selectYellowInDropdown();
 
-//        9. Assert that
-//•	for each checkbox there is an individual log row and value is corresponded to the status of checkbox
-//•	for radio button there is a log row and value is corresponded to the status of radio button
-//•	for dropdown there is a log row and value is corresponded to the selected value.
+        //        9. Assert that
+        //for each checkbox there is an individual log row and value is corresponded to the status of checkbox
+        //for radio button there is a log row and value is corresponded to the status of radio button
+        //for dropdown there is a log row and value is corresponded to the selected value.
 
         differentElementsPage.assertCheckboxWaterLogRow();
         differentElementsPage.assertDropdownYellowColorLogRow();
         differentElementsPage.assertCheckboxWindLogRow();
         differentElementsPage.assertRadioButtonMetalLogRow();
 
-//        10. Close Browser
+        //        10. Close Browser
 
         webDriver.close();
-
     }
-
-    @After
-    public void clear() {
-        webDriver.close();
-    }
-
 }
 
