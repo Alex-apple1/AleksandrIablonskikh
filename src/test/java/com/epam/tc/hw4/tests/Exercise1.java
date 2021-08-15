@@ -5,35 +5,42 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.epam.tc.hw4.entities.HW4StarterClass;
 import com.epam.tc.hw4.pages.FrontPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestContext;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Exercise1 extends HW4StarterClass {
+public class Exercise1 {
 
-    //    private WebDriver webDriver;
-    //    private FrontPage frontPage;
-    //    private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
-    //    private String nextUrl = "https://jdi-testing.github.io/jdi-light/contacts.html";
+    private WebDriver webDriver;
+    private FrontPage frontPage;
+    private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
+    private String nextUrl = "https://jdi-testing.github.io/jdi-light/contacts.html";
 
-    //    @BeforeClass
-    //    public void beforeClass(ITestContext context) {
-    //        context.setAttribute("driver", webDriver);
-    //    }
+    @BeforeClass
+    public void beforeClass(ITestContext context) {
+        context.setAttribute("driver", webDriver);
+    }
 
-    //    @BeforeMethod
-    //    @Description("This is description of first Exercise")
-    //    public void setUp() {
-    //        WebDriverManager.chromedriver().setup();
-    //    }
+    @BeforeMethod
+    @Description("This is description of first Exercise")
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+    }
 
-    //    @AfterMethod
-    //    public void clear() {
-    //        webDriver.quit();
-    //    }
+    @AfterMethod
+    public void clear() {
+        webDriver.quit();
+    }
 
     @Test
     @Severity(SeverityLevel.NORMAL)

@@ -9,7 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DifferentElementsPage extends HW4StarterClass {
+public class DifferentElementsPage {
+
     WebDriver webDriver;
 
     @FindBy(className = "label-checkbox")
@@ -33,26 +34,26 @@ public class DifferentElementsPage extends HW4StarterClass {
 
     public void assertCheckboxWaterLogRow() {
         assertThat(waterCondition.getText())
-                .as("Water condition log")
-                .contains("Water: condition changed to true");
+            .as("Water condition log")
+            .contains("Water: condition changed to true");
     }
 
     public void assertCheckboxWindLogRow() {
         assertThat(windCondition.getText())
-                .as("Wind condition log")
-                .contains("Wind: condition changed to true");
+            .as("Wind condition log")
+            .contains("Wind: condition changed to true");
     }
 
     public void assertRadioButtonMetalLogRow() {
         assertThat(metalCondition.getText())
-                .as("Metal condition log")
-                .contains("metal: value changed to Selen");
+            .as("Metal condition log")
+            .contains("metal: value changed to Selen");
     }
 
     public void assertDropdownYellowColorLogRow() {
         assertThat(colorCondition.getText())
-                .as("Color condition log")
-                .contains("Colors: value changed to Yellow");
+            .as("Color condition log")
+            .contains("Colors: value changed to Yellow");
     }
 
     public void selectYellowInDropdown() {

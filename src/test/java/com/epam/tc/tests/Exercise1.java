@@ -24,8 +24,8 @@ public class Exercise1 {
 
     private WebDriver webDriver;
     private FrontPage frontPage;
-    private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/nothing.html";
-    private String nextUrl = "https://jdi-testing.github.io/jdi-light/idle.html";
+    private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
+    private String nextUrl = "https://jdi-testing.github.io/jdi-light/contacts.html";
 
     @BeforeClass
     public void beforeClass(ITestContext context) {
@@ -46,7 +46,7 @@ public class Exercise1 {
     @Test
     @Severity(SeverityLevel.NORMAL)
     @Feature("Front page tests")
-    @Story("Marvel story")
+    @Story("Ugly sad story")
     public void failExerciseTest() throws InterruptedException {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
@@ -100,7 +100,7 @@ public class Exercise1 {
 
         step("10. Switch to original window back");
 
-        webDriver.switchTo().defaultContent();
+        //        webDriver.switchTo().defaultContent();
 
         step("11. Assert that there are 5 items in the Left Section are displayed and they have proper text");
 

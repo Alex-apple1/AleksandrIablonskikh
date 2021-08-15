@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FrontPage extends HW4StarterClass {
+public class FrontPage {
 
     WebDriver webDriver;
     WebElement webElement;
@@ -106,32 +106,32 @@ public class FrontPage extends HW4StarterClass {
 
     public void assertUserAccountName() {
         assertThat(userAccountName.getText().toUpperCase())
-                .as("Username")
-                .isEqualTo(expectedAccountName);
+            .as("Username")
+            .isEqualTo(expectedAccountName);
     }
 
     public void assertHeaderItemHome() {
         assertThat(headerItemHome.getText())
-                .as("Header item Home")
-                .isEqualToIgnoringCase(expectedHeaderItemHome);
+            .as("Header item Home")
+            .isEqualToIgnoringCase(expectedHeaderItemHome);
     }
 
     public void assertHeaderItemContactForm() {
         assertThat(headerItemContactForm.getText())
-                .as("Header item Contact form")
-                .isEqualToIgnoringCase(expectedHeaderItemContactForm);
+            .as("Header item Contact form")
+            .isEqualToIgnoringCase(expectedHeaderItemContactForm);
     }
 
     public void assertHeaderItemService() {
         assertThat(headerItemService.getText())
-                .as("Header item Service")
-                .isEqualToIgnoringCase(expectedHeaderItemService);
+            .as("Header item Service")
+            .isEqualToIgnoringCase(expectedHeaderItemService);
     }
 
     public void assertHeaderItemMetalsAndColors() {
         assertThat(headerItemMetalsAndColors.getText())
-                .as("Header item Metals & Colors")
-                .isEqualToIgnoringCase(expectedHeaderItemMetalsAndColors);
+            .as("Header item Metals & Colors")
+            .isEqualToIgnoringCase(expectedHeaderItemMetalsAndColors);
     }
 
     public void switchToIFrameAndCheckTheButton() {
@@ -162,39 +162,37 @@ public class FrontPage extends HW4StarterClass {
 
     public void assertIFrameExist() {
         assertThat(iframeExist.isEnabled())
-                .as("Iframe exist")
-                .isTrue();
+            .as("Iframe exist")
+            .isTrue();
     }
 
     public void assertLeftSectionHomeText() {
         assertThat(leftSectionHomeText.getText())
-                .as("Home text in the Left Section")
-                .isEqualTo("Home");
+            .as("Home text in the Left Section")
+            .isEqualTo("Home");
     }
 
     public void assertLeftSectionContactFormText() {
         assertThat(leftSectionContactFormText.getText())
-                .as("Contact form text in the Left Section")
-                .isEqualTo("Contact form");
+            .as("Contact form text in the Left Section")
+            .isEqualTo("Contact form");
     }
 
     public void assertLeftSectionServiceText() {
         assertThat(leftSectionServiceText.getText())
-                .as("Service text in the Left Section")
-                .isEqualTo("Service");
+            .as("Service text in the Left Section")
+            .isEqualTo("Service");
     }
 
     public void assertLeftSectionMetalsAndColorsText() {
         assertThat(leftSectionMetalsAndColorsText.getText())
-                .as("Metals & Colors text in the Left Section")
-                .isEqualTo("Metals & Colors");
+            .as("Metals & Colors text in the Left Section")
+            .isEqualTo("Metals & Colors");
     }
 
     public void assertLeftSectionElementsPacksText() {
         assertThat(leftSectionElementsPacksText.getText())
-                .as("Elements packs text in the Left Section")
-                .isEqualTo("Elements packs");
+            .as("Elements packs text in the Left Section")
+            .isEqualTo("Elements packs");
     }
-
-
 }
