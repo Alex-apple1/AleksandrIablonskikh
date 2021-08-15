@@ -3,8 +3,9 @@
 <suite name="runSteps" >
     <test name="HW4Tests">
         <classes>
-            <class name="com.epam.tc.hw4.ex1.Exercise1"/>
-            <class name="com.epam.tc.hw4.ex2.Exercise2"/>
+            <class name="com.epam.tc.hw4.entities.ex1.Exercise1"/>
+            <class name="com.epam.tc.hw4.entities.ex2.Exercise2"/>
+            <class name="com.epam.tc.hw4.entities.Attachment"/>
         </classes>
     </test>
 </suite>

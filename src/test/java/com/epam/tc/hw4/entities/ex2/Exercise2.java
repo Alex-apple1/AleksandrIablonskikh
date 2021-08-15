@@ -1,10 +1,10 @@
-package com.epam.tc.hw4.ex2;
+package com.epam.tc.hw4.entities.ex2;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw4.pages.DifferentElementsPage;
-import com.epam.tc.hw4.pages.FrontPage;
+import com.epam.tc.hw4.entities.pages.DifferentElementsPage;
+import com.epam.tc.hw4.entities.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
