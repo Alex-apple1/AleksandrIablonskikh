@@ -1,47 +1,47 @@
-package com.epam.tc.hw4.entities.ex2;
+package com.epam.tc.hw4.tests;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw4.entities.pages.DifferentElementsPage;
-import com.epam.tc.hw4.entities.pages.FrontPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Description;
+import com.epam.tc.hw4.entities.HW4StarterClass;
+import com.epam.tc.hw4.pages.DifferentElementsPage;
+import com.epam.tc.hw4.pages.FrontPage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Exercise2 {
+public class Exercise2 extends HW4StarterClass {
 
-    private WebDriver webDriver;
-    private WebElement webElement;
-    private DifferentElementsPage differentElementsPage;
-    private FrontPage frontPage;
-    private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
+    //    private WebDriver webDriver;
+    //    private WebElement webElement;
+    //    private DifferentElementsPage differentElementsPage;
+    //    private FrontPage frontPage;
+    //    private String frontPageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
 
-    @BeforeTest
-    @Description("This is description of second Exercise")
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-    }
+    //    @BeforeClass
+    //    public void beforeClass(ITestContext context) {
+    //        context.setAttribute("driver", webDriver);
+    //    }
 
-    @AfterTest
-    public void clear() {
-        webDriver.quit();
-    }
+    //    @BeforeMethod
+    //    @Description("This is description of second Exercise")
+    //    public void setUp() {
+    //        WebDriverManager.chromedriver().setup();
+    //    }
+
+    //    @AfterMethod
+    //    public void clear() {
+    //        webDriver.quit();
+    //    }
 
     @Test
     @Severity(SeverityLevel.MINOR)
     @Feature("Different elements page tests")
     @Story("DC story")
-    public void firstExerciseTest() throws InterruptedException {
+    public void secondExerciseTest() throws InterruptedException {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
 

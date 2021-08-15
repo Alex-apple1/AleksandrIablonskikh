@@ -1,16 +1,15 @@
-package com.epam.tc.hw4.entities.pages;
+package com.epam.tc.hw4.pages;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import io.qameta.allure.Step;
+import com.epam.tc.hw4.entities.HW4StarterClass;
 import java.util.List;
-import lombok.experimental.UtilityClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FrontPage {
+public class FrontPage extends HW4StarterClass {
 
     WebDriver webDriver;
     WebElement webElement;
