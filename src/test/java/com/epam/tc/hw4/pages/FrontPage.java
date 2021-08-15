@@ -3,6 +3,7 @@ package com.epam.tc.hw4.pages;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.qameta.allure.Step;
+import java.util.List;
 import lombok.experimental.UtilityClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 public class FrontPage {
 
     WebDriver webDriver;
+    WebElement webElement;
 
     private String loginName = "Roman";
     private String loginPassword = "Jdi1234";
@@ -47,8 +49,6 @@ public class FrontPage {
     private WebElement indexPageScreenPicture;
     @FindBy(className = "icon-base")
     private WebElement indexPageRocketPicture;
-    @FindBy(xpath = "//*[text()='To be multiplatform ']")
-    private WebElement toBeMultiplatformText;
     @FindBy(id = "frame")
     private WebElement iframeExist;
     @FindBy(xpath = "//*[@id='mCSB_1_container']/ul/li[1]/a/span")
@@ -65,6 +65,12 @@ public class FrontPage {
     private WebElement headerMenuService;
     @FindBy(xpath = "//*[text()='Different elements']")
     private WebElement differentElementsItem;
+    @FindBy(className = "benefit-icon")
+    private List<WebElement> indexPageFourBottomPictures;
+    @FindBy(className = "benefit-txt")
+    private List<WebElement> indexPageFourBottomTexts;
+    @FindBy(xpath = "//*[@id='frame-button']")
+    private WebElement frameButtonExists;
 
     public FrontPage(WebDriver webDriver) {
         PageFactory.initElements(webDriver, this);
@@ -129,34 +135,30 @@ public class FrontPage {
                 .isEqualToIgnoringCase(expectedHeaderItemMetalsAndColors);
     }
 
-    public void assertIndexPageMicroscopePicture() {
-        assertThat(indexPageMicroscopePicture.isDisplayed())
-                .as("Index page microscope picture")
-                .isTrue();
+    public void switchToIFrameAndCheckTheButton() {
+        assertThat(frameButtonExists.isEnabled())
+            .as("Button frame exists")
+            .isTrue();
     }
 
-    public void assertIndexPageHeadphonePicture() {
-        assertThat(indexPageMicroscopePicture.isDisplayed())
-                .as("Index page headphone picture")
-                .isTrue();
+    public void assertIndexPageFourBottomPictures() {
+        assertThat(indexPageFourBottomPictures.get(0).isDisplayed()).as("Picture is shown").isTrue();
+        assertThat(indexPageFourBottomPictures.get(1).isDisplayed()).as("Picture is shown").isTrue();
+        assertThat(indexPageFourBottomPictures.get(2).isDisplayed()).as("Picture is shown").isTrue();
+        assertThat(indexPageFourBottomPictures.get(3).isDisplayed()).as("Picture is shown").isTrue();
     }
 
-    public void assertIndexPageScreenPicture() {
-        assertThat(indexPageMicroscopePicture.isDisplayed())
-                .as("Index page screen picture")
-                .isTrue();
-    }
-
-    public void assertIndexPageRocketPicture() {
-        assertThat(indexPageRocketPicture.isDisplayed())
-                .as("Index page rocket picture")
-                .isTrue();
-    }
-
-    public void assertToBeMultiplatformText() {
-        assertThat(toBeMultiplatformText.getText())
-                .as("To be multiplatform TEXT")
-                .isEqualTo("To be multiplatform");
+    public void assertIndexPageFourBottomTexts() {
+        assertThat(indexPageFourBottomTexts.get(0).getText()).isEqualTo("To include good practices\n"
+            + "and ideas from successful\n"
+            + "EPAM project");
+        assertThat(indexPageFourBottomTexts.get(1).getText()).isEqualTo("To be flexible and\n"
+            + "customizable");
+        assertThat(indexPageFourBottomTexts.get(2).getText()).isEqualTo("To be multiplatform");
+        assertThat(indexPageFourBottomTexts.get(3).getText()).isEqualTo("Already have good base\n"
+            + "(about 20 internal and\n"
+            + "some external projects),\n"
+            + "wish to get more…");
     }
 
     public void assertIFrameExist() {

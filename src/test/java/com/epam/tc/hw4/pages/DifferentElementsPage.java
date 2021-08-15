@@ -66,6 +66,4 @@ public class DifferentElementsPage {
         checkBoxesList.get(0).click();
         checkBoxesList.get(2).click();
     }
-
-
 }

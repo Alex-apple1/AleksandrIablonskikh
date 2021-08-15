@@ -3,8 +3,8 @@
 <suite name="runSteps" >
     <test name="HW4Tests">
         <classes>
-            <class name="com.epam.tc.tests.Exercise1"/>
-<!--            <class name="com.epam.tc.tests.Exercise2"/>-->
+            <class name="com.epam.tc.hw4.ex1.Exercise1"/>
+            <class name="com.epam.tc.hw4.ex2.Exercise2"/>
         </classes>
     </test>
 </suite>
