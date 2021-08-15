@@ -74,7 +74,7 @@
 
   <profiles>
     <profile>
-      <id>runEx1AndEx2Suite</id>
+      <id>runHW2Suite</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>

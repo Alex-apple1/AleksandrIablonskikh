@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.List;
-import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +20,11 @@ public class Exercise1 {
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
+    }
+
+    @AfterTest
+    public void clear() {
+        webDriver.quit();
     }
 
     @Test
@@ -92,7 +96,7 @@ public class Exercise1 {
 
         //        7. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
-        List<WebElement> indexPageFourTexts = webDriver.findElements(By.cssSelector(".benefit-txt"));
+        List<WebElement> indexPageFourTexts = webDriver.findElements(By.className("benefit-txt"));
         assertThat(indexPageFourTexts.get(0).getText()).isEqualTo("To include good practices\n"
             + "and ideas from successful\n"
             + "EPAM project");
@@ -103,7 +107,6 @@ public class Exercise1 {
             + "(about 20 internal and\n"
             + "some external projects),\n"
             + "wish to get more…");
-
 
         //        8. Assert that there is the iframe with “Frame Button” exist
 
@@ -117,21 +120,14 @@ public class Exercise1 {
 
         webDriver.switchTo().frame("frame");
 
-        //        webElement = webDriver.findElement(By.cssSelector("#frame"));
-        //                webElement.click();
         webElement = webDriver.findElement(By.xpath("//*[@id='frame-button']"));
         boolean frameButtonExists = webElement.isEnabled();
         assertThat(frameButtonExists)
             .as("Button frame exists")
             .isTrue();
 
-        //                String windowHandler = webDriver.getWindowHandle();
-        //                Set<String> windows = webDriver.getWindowHandles();
-        //                webDriver.switchTo().window(windowHandler);
-        //                webDriver.switchTo().frame("frame-button");
-        //                webDriver.switchTo().alert();
-
         //        10. Switch to original window back
+
         webDriver.switchTo().defaultContent();
 
         //        11. Assert that there are 5 items in the Left Section are displayed and they have proper text
@@ -155,11 +151,6 @@ public class Exercise1 {
         //        12. Close Browser
 
         webDriver.close();
-    }
-
-    @AfterTest
-    public void clear() {
-        webDriver.quit();
     }
 }
 

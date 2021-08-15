@@ -12,7 +12,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-
 public class Exercise2 {
     private WebDriver webDriver;
 
@@ -21,6 +20,11 @@ public class Exercise2 {
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
+    }
+
+    @AfterTest
+    public void clear() {
+        webDriver.quit();
     }
 
     @Test
@@ -115,11 +119,6 @@ public class Exercise2 {
 
         //        10. Close Browser
 
-        webDriver.close();
-    }
-
-    @AfterTest
-    public void clear() {
         webDriver.close();
     }
 }
