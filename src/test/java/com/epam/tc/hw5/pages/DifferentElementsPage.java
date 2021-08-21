@@ -31,29 +31,29 @@ public class DifferentElementsPage {
         PageFactory.initElements(webDriver, this);
     }
 
-    public void assertCheckboxWaterLogRow() {
-        assertThat(waterCondition.getText())
-            .as("Water condition log")
-            .contains("Water: condition changed to true");
-    }
-
-    public void assertCheckboxWindLogRow() {
-        assertThat(windCondition.getText())
-            .as("Wind condition log")
-            .contains("Wind: condition changed to true");
-    }
-
-    public void assertRadioButtonMetalLogRow() {
-        assertThat(metalCondition.getText())
-            .as("Metal condition log")
-            .contains("metal: value changed to Selen");
-    }
-
-    public void assertDropdownYellowColorLogRow() {
-        assertThat(colorCondition.getText())
-            .as("Color condition log")
-            .contains("Colors: value changed to Yellow");
-    }
+//    public void assertCheckboxWaterLogRow() {
+//        assertThat(waterCondition.getText())
+//            .as("Water condition log")
+//            .contains("Water: condition changed to true");
+//    }
+//
+//    public void assertCheckboxWindLogRow() {
+//        assertThat(windCondition.getText())
+//            .as("Wind condition log")
+//            .contains("Wind: condition changed to true");
+//    }
+//
+//    public void assertRadioButtonMetalLogRow() {
+//        assertThat(metalCondition.getText())
+//            .as("Metal condition log")
+//            .contains("metal: value changed to Selen");
+//    }
+//
+//    public void assertDropdownYellowColorLogRow() {
+//        assertThat(colorCondition.getText())
+//            .as("Color condition log")
+//            .contains("Colors: value changed to Yellow");
+//    }
 
     public void selectYellowInDropdown() {
         dropdown.click();

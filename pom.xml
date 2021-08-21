@@ -24,6 +24,7 @@
     <allure.version>2.13.2</allure.version>
     <aspectj.version>1.9.5</aspectj.version>
     <lombok.version>1.18.20</lombok.version>
+    <cucumber-version>6.9.1</cucumber-version>
   </properties>
 
   <build>
@@ -42,7 +43,6 @@
         </dependencies>
         <configuration>
           <configLocation>
-            <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
             https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
           </configLocation>
           <encoding>${project.build.sourceEncoding}</encoding>
@@ -67,7 +67,6 @@
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <argLine>
-            <!--                        &#45;&#45;illegal-access=permit-->
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
           </argLine>
           <suiteXmlFiles>
@@ -92,10 +91,18 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/runHW5.xml</maven-surefire-plugin.suiteXmlFile>
+        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/HW5.pure.java.suite.xml</maven-surefire-plugin.suiteXmlFile>
         <!--                <testng.suite.file>${testng.configs.path}/testng/hw4.class.suite.xml</testng.suite.file>-->
       </properties>
     </profile>
+    <profile>
+      <id>runHW5Tests-cucumber</id>
+      <properties>
+        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/HW5.cucumber.suite.xml</maven-surefire-plugin.suiteXmlFile>
+        <!--                <testng.suite.file>${testng.configs.path}/testng/hw4.class.suite.xml</testng.suite.file>-->
+      </properties>
+    </profile>
+
 
   </profiles>
 
@@ -112,11 +119,16 @@
       <version>${testng.version}</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-testng</artifactId>
-      <version>6.9.1</version>
+      <version>${cucumber-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber-version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
