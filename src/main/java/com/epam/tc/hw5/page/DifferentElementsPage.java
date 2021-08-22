@@ -1,9 +1,7 @@
 package com.epam.tc.hw5.page;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfNestedElementsLocatedBy;
 
-import com.epam.tc.hw5.page.component.CheckboxesRadioDropboxComponent;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +33,7 @@ public class DifferentElementsPage extends AbstractBasePage {
     @FindBy(xpath = "//*[@class='panel-body-list logs']")
     private List<WebElement> logDataPath;
 
-    private CheckboxesRadioDropboxComponent checkboxesRadioDropboxComponent;
+    //    private CheckboxesRadioDropboxComponent checkboxesRadioDropboxComponent;
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
@@ -80,6 +78,4 @@ public class DifferentElementsPage extends AbstractBasePage {
         return wait.until(visibilityOfAllElements(logGetText))
                    .stream().map(WebElement::getText).collect(Collectors.joining(""));
     }
-
-
 }

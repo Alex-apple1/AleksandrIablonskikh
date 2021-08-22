@@ -33,19 +33,19 @@ public class ActionStep extends AbstractStep {
 
     //    Ex2
 
-    @When("I click on {string} button in Header")
-    public void openServiceDropDownInHeader(String serviceItemInHeaderMenu) {
-        frontPage.goToHeaderComponent().clickOnServiceButtonInHeaderMenu(serviceItemInHeaderMenu);
-    }
-
     @When("I click on {string} button in Service dropdown")
     public void clickOnUserTableButton(String userTableButton) {
         frontPage.goToHeaderComponent().goToItemFromHeaderMenuServiceChosen(userTableButton);
     }
 
     //    Ex3
-    @When("I select 'vip' checkbox for {string}")
-    public void selectVipCheckboxOnUserTablePage(String sergeyIvanLink) {
-        userTablePage.selectVipCheckBoxOnUserTablePage(sergeyIvanLink);
+    @When("I select 'vip' checkbox for \"Sergey Ivan\"")
+    public void selectVipCheckboxOnUserTablePage() {
+        userTablePage.selectVipCheckBoxOnUserTablePage();
     }
+
+    //    @When("I select 'vip' checkbox for {string}")
+    //    public void selectVipCheckboxOnUserTablePage(String sergeyIvanLink) {
+    //        userTablePage.selectVipCheckBoxOnUserTablePage(sergeyIvanLink);
+    //    }
 }

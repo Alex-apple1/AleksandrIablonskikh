@@ -4,7 +4,6 @@
   <test name="hW5Tests">
     <classes>
       <class name="com.epam.tc.hw5.cucumber.RunAcceptanceTest"/>
-<!--      <class name="com.epam.tc.hw5.tests.Ex2"/>-->
     </classes>
   </test>
 </suite>

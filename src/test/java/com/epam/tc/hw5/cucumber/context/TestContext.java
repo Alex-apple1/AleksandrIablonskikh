@@ -19,6 +19,7 @@ public final class TestContext {
     public <T> T getTestObject(String key) {
         return (T) context.get(key);
     }
+
     public void clean() {
         context.clear();
         instance = null;

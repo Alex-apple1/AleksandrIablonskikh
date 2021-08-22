@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
-    <testng.suite.file>${testng.configs.path}/lesson1.empty.suite.xml</testng.suite.file>
+    <testng.suite.file>${testng.configs.path}/HW5.cucumber.suite.xml</testng.suite.file>
 
     <checkstyle.version>8.42</checkstyle.version>
     <lombok.version>1.18.20</lombok.version>
@@ -93,16 +93,16 @@
   </build>
 
   <profiles>
-    <profile>
-      <id>runHW5Tests</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/HW5.pure.java.suite.xml</maven-surefire-plugin.suiteXmlFile>
-        <!--                <testng.suite.file>${testng.configs.path}/testng/hw4.class.suite.xml</testng.suite.file>-->
-      </properties>
-    </profile>
+    <!--    <profile>-->
+    <!--      <id>runHW5Tests</id>-->
+    <!--      <activation>-->
+    <!--        <activeByDefault>true</activeByDefault>-->
+    <!--      </activation>-->
+    <!--      <properties>-->
+    <!--        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/HW5.pure.java.suite.xml</maven-surefire-plugin.suiteXmlFile>-->
+    <!--        &lt;!&ndash;                <testng.suite.file>${testng.configs.path}/testng/hw4.class.suite.xml</testng.suite.file>&ndash;&gt;-->
+    <!--      </properties>-->
+    <!--    </profile>-->
     <profile>
       <id>runHW5Tests-cucumber</id>
       <properties>
@@ -183,7 +183,6 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>${logback-classic.version}</version>
-      <!--  default scope is compile  -->
     </dependency>
   </dependencies>
 

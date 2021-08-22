@@ -1,7 +1,5 @@
 package com.epam.tc.hw5.cucumber.steps;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import com.epam.tc.hw5.cucumber.context.TestContext;
 import io.cucumber.java.en.Then;
 import java.util.Arrays;
@@ -23,7 +21,7 @@ public class AssertionStep extends AbstractStep {
 
         softAssertions.assertThat(differentElementsPage.logBodyText()).contains(checkboxes);
         softAssertions.assertThat(differentElementsPage.logBodyText()).contains(radio);
-        softAssertions.assertThat(differentElementsPage.logBodyText()).contains(dropbox);
+//        softAssertions.assertThat(differentElementsPage.logBodyText()).contains(dropbox);
         //        softAssertions.assertAll();
     }
 
@@ -39,7 +37,7 @@ public class AssertionStep extends AbstractStep {
         softAssertions.assertThat(userTablePage.numberTypeDropdowns()).hasSize(6);
     }
 
-    @Then("6 Usernames should be displayed on Users Table on on User Table Page")
+    @Then("6 Usernames should be displayed on Users Table on User Table Page")
     public void usernamesAreDisplayed() {
         softAssertions.assertThat(userTablePage.usernames()).hasSize(6);
     }
@@ -54,8 +52,7 @@ public class AssertionStep extends AbstractStep {
         softAssertions.assertThat(userTablePage.checkboxes()).hasSize(6);
     }
 
-    @Then(
-        "User table should contain following values: number {string}, user {string}, description {string}")
+    @Then("User table should contain following values: number {string}, user {string}, description {string}")
     public void userTableContainsValues(String number, String user, String description) {
         softAssertions.assertThat(userTablePage.userTableText()).contains(Arrays.asList(number, user, description));
     }

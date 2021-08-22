@@ -8,5 +8,8 @@ public class FrontPage extends AbstractBasePage {
         super(driver);
     }
 
-    public void open() { openFrontPage(""); }
+    public void open() {
+        openFrontPage("");
+    }
+
 }

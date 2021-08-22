@@ -46,32 +46,27 @@ public class HeaderComponent extends AbstractComponent {
 
     @SneakyThrows
     public void login(String loginNameGiven) {
-        if (loginNameGiven == "Roman Iovlev") {
+        if (loginNameGiven.contains("Roman Iovlev")) {
             wait.until(visibilityOf(userIcon)).click();
-            driver.switchTo().activeElement();
             wait.until(visibilityOf(name)).sendKeys(loginName);
             wait.until(visibilityOf(password)).sendKeys(loginPassword);
             wait.until(visibilityOf(loginButton)).click();
         }
-        throw new Exception("Wrong Login name entered!");
-    }
-
-    public ServiceHeaderComponent openHeaderMenuServiceComponent() {
-        wait.until(visibilityOf(headerMenuService)).click();
-        return new ServiceHeaderComponent(driver);
     }
 
     public void clickOnServiceButtonInHeaderMenu(String buttonInHeaderMenu) {
         if (buttonInHeaderMenu.contains("Service")) {
             wait.until(visibilityOf(headerMenuService)).click();
-        } else driver.navigate().to(BASE_URL);
-
+        } else {
+            driver.navigate().to(BASE_URL);
+        }
     }
 
     public void goToItemFromHeaderMenuServiceChosen(String serviceCategory) {
-        wait.until(visibilityOf(headerMenuService)).click();
         if (serviceCategory.contains("Different Elements")) {
             wait.until(visibilityOf(differentElementsItem)).click();
-        } else wait.until(visibilityOf(userTableItem)).click();
+        } else {
+            wait.until(visibilityOf(userTableItem)).click();
+        }
     }
 }

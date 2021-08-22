@@ -2,8 +2,6 @@ package com.epam.tc.hw5.page;
 
 import com.epam.tc.hw5.page.component.AbstractComponent;
 import com.epam.tc.hw5.page.component.HeaderComponent;
-import com.epam.tc.hw5.page.component.ServiceHeaderComponent;
-import com.epam.tc.hw5.page.component.LoginComponent;
 import org.openqa.selenium.WebDriver;
 
 public class AbstractBasePage extends AbstractComponent {
@@ -17,13 +15,15 @@ public class AbstractBasePage extends AbstractComponent {
         headerComponent = new HeaderComponent(driver);
     }
 
-    public String getTitle() { return driver.getTitle(); }
-
-    public HeaderComponent goToHeaderComponent() { return headerComponent; }
-
-    public ServiceHeaderComponent openHeaderMenuService() {
-        return headerComponent.openHeaderMenuServiceComponent();
+    public String getTitle() {
+        return driver.getTitle();
     }
 
-    protected void openFrontPage(String url) { driver.navigate().to(BASE_URL + url); }
+    public HeaderComponent goToHeaderComponent() {
+        return headerComponent;
+    }
+
+    protected void openFrontPage(String url) {
+        driver.navigate().to(BASE_URL + url);
+    }
 }

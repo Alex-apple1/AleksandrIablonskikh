@@ -3,7 +3,6 @@ package com.epam.tc.hw5.page;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
 
-import com.epam.tc.hw5.page.component.CheckboxesRadioDropboxComponent;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.By;
@@ -16,7 +15,7 @@ public class UserTablePage extends AbstractBasePage {
 
     @FindBy(tagName = "select")
     private List<WebElement> numberTypeDropdowns;
-    @FindBy(tagName = "tr td a")
+    @FindBy(css = "tr td a")
     private List<WebElement> usernames;
     @FindBy(css = "tr td div span")
     private List<WebElement> descriptionTexts;
@@ -30,13 +29,14 @@ public class UserTablePage extends AbstractBasePage {
     private List<WebElement> logGetText;
     @FindBy(xpath = "//*[@class='panel-body-list logs']")
     private List<WebElement> logDataPath;
-    @FindBy(xpath = "//*[@type='checkbox']")
-    private List<WebElement> sergeyIvan;
+    @FindBy(id = "ivan")
+    private WebElement sergeyIvan;
+    //    @FindBy(xpath = "//*[@type='checkbox']")
+    //    private List<WebElement> sergeyIvan;
     @FindBy(css = ".info-panel-section ul")
     private WebElement logRowsQuantity;
     @FindBy(css = ".info-panel-section li")
     private WebElement logRowText;
-
 
     public UserTablePage(WebDriver driver) {
         super(driver);
@@ -69,12 +69,16 @@ public class UserTablePage extends AbstractBasePage {
         return droplistItem.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
-    public void selectVipCheckBoxOnUserTablePage(String sergeyIvanVipCheckbox) {
-        wait.until(visibilityOfAllElements(sergeyIvan))
-            .stream()
-            .filter(i -> i.getText().contains(sergeyIvanVipCheckbox))
-            .collect(Collectors.toList()).stream().findFirst().get().click();
+    public void selectVipCheckBoxOnUserTablePage() {
+        wait.until(ExpectedConditions.visibilityOf(sergeyIvan)).click();
     }
+
+    //    public void selectVipCheckBoxOnUserTablePage(String sergeyIvanVipCheckbox) {
+    //        wait.until(visibilityOfAllElements(sergeyIvan))
+    //            .stream()
+    //            .filter(i -> i.getText().contains(sergeyIvanVipCheckbox))
+    //            .collect(Collectors.toList()).stream().findFirst().get().click();
+    //    }
 
     public List<WebElement> logRowsQuantity() {
         return wait.until(visibilityOfAllElements(logRowsQuantity));
