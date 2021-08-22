@@ -6,3 +6,5 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin = {"io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"})
 public class RunAcceptanceTest extends AbstractTestNGCucumberTests {
 }
+
+//plugin = {"io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"}

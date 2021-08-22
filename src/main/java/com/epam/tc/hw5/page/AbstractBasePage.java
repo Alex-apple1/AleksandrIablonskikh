@@ -17,8 +17,8 @@ public class AbstractBasePage extends AbstractComponent {
         headerComponent = new HeaderComponent(driver);
     }
 
-    public LoginComponent openUserAccount() {
-        return headerComponent.openUserAccountComponent();
+    public HeaderComponent goToHeaderComponent() {
+        return headerComponent;
     }
 
     public ServiceHeaderComponent openHeaderMenuService() {

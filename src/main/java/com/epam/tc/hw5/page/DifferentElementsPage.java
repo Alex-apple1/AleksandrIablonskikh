@@ -14,11 +14,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class DifferentElementsPage extends AbstractBasePage {
 
     @FindBy(className = "label-checkbox")
-    private List<WebElement> checkBoxesList;
+    private List<WebElement> checkBoxes;
     @FindBy(className = "label-radio")
     private List<WebElement> radioList;
     @FindBy(xpath = "//select[@class='uui-form-element']/option[text()='Yellow']")
     private WebElement dropdown;
+    @FindBy(tagName = "option")
+    private List<WebElement> dropdownItems;
 
     @FindBy(xpath = "//*[@id='mCSB_2_container']/section[1]/div[2]/div/ul/li[4]")
     private WebElement waterCondition;
@@ -28,6 +30,8 @@ public class DifferentElementsPage extends AbstractBasePage {
     private WebElement metalCondition;
     @FindBy(xpath = "//*[@id='mCSB_2_container']/section[1]/div[2]/div/ul/li[1]")
     private WebElement colorCondition;
+    @FindBy(className = "info-panel-section")
+    private List<WebElement> logGetText;
     @FindBy(xpath = "//*[@class='panel-body-list logs']")
     private List<WebElement> logDataPath;
 
@@ -37,18 +41,27 @@ public class DifferentElementsPage extends AbstractBasePage {
         super(driver);
     }
 
-    public void selectCheckboxItems() {
-        wait.until(visibilityOfAllElements(checkBoxesList));
-        checkboxesRadioDropboxComponent.selectCheckboxesComponent();
+    public void selectCheckboxItems(String boxName) {
+        wait.until(visibilityOfAllElements(checkBoxes))
+            .stream()
+            .filter(i -> i.getText().contains(boxName))
+            .collect(Collectors.toList()).stream().findFirst().get().click();
     }
 
-    public String selectRadioItem(String name) {
-        wait.until(visibilityOfAllElements(radioList));
-        return radioList.get(3).getText();
+    public void selectRadioItem(String radioName) {
+        wait.until(visibilityOfAllElements(radioList))
+            .stream()
+            .filter(i -> i.getText().contains(radioName))
+            .collect(Collectors.toList()).stream().findFirst().get().click();
     }
 
-    public void selectDropdownItem(String name) {
-        dropdown.click();
+    public void selectDropdownItem(String dropdownName) {
+        wait.until(ExpectedConditions.visibilityOf(dropdown)).click();
+        driver.switchTo().activeElement();
+        wait.until(visibilityOfAllElements(dropdownItems))
+            .stream()
+            .filter(i -> i.getText().contains(dropdownName))
+            .collect(Collectors.toList()).stream().findFirst().get().click();
     }
 
     public List<String> getSelectedItemsNames() {
@@ -58,101 +71,15 @@ public class DifferentElementsPage extends AbstractBasePage {
                    .collect(Collectors.toList());
     }
 
-//    public void assertCheckboxWaterLogRow() {
-//        assertThat(waterCondition.getText())
-//            .as("Water condition log")
-//            .contains("Water: condition changed to true");
-//    }
-//
-//    public void assertCheckboxWindLogRow() {
-//        assertThat(windCondition.getText())
-//            .as("Wind condition log")
-//            .contains("Wind: condition changed to true");
-//    }
-//
-//    public void assertRadioButtonMetalLogRow() {
-//        assertThat(metalCondition.getText())
-//            .as("Metal condition log")
-//            .contains("metal: value changed to Selen");
-//    }
-//
-//    public void assertDropdownYellowColorLogRow() {
-//        assertThat(colorCondition.getText())
-//            .as("Color condition log")
-//            .contains("Colors: value changed to Yellow");
-//    }
+    public boolean findInLog(String elementName) {
+        return wait.until(visibilityOfAllElements(logDataPath))
+                   .stream().anyMatch(i -> i.getText().contains(elementName));
+    }
 
-    //    public void clickToSelectCheckboxes(CheckboxesRadioDropboxComponent checkboxNameSelected) {
-    //        checkboxNameSelected.selectCheckboxesComponent();
-    //    }
+    public String logBodyText() {
+        return wait.until(visibilityOfAllElements(logGetText))
+                   .stream().map(WebElement::getText).collect(Collectors.joining(""));
+    }
 
-    //    public DifferentElementsPage(WebDriver webDriver) {
-    //        PageFactory.initElements(webDriver, this);
-    //    }
 
-    //    public void selectRadioOnDifferentElementsPage() {
-    //        wait.until(visibilityOfAllElements());
-    //        radioList.get(3).click();
-    //    }
-
-    //    public void assertCheckboxWaterLogRow() {
-    //        assertThat(waterCondition.getText())
-    //            .as("Water condition log")
-    //            .contains("Water: condition changed to true");
-    //    }
-    //
-    //    public void assertCheckboxWindLogRow() {
-    //        assertThat(windCondition.getText())
-    //            .as("Wind condition log")
-    //            .contains("Wind: condition changed to true");
-    //    }
-    //
-    //    public void assertRadioButtonMetalLogRow() {
-    //        assertThat(metalCondition.getText())
-    //            .as("Metal condition log")
-    //            .contains("metal: value changed to Selen");
-    //    }
-    //
-    //    public void assertDropdownYellowColorLogRow() {
-    //        assertThat(colorCondition.getText())
-    //            .as("Color condition log")
-    //            .contains("Colors: value changed to Yellow");
-    //    }
-
-    //    public void selectYellowInDropdown() {
-    //        dropdown.click();
-    //    }
-    //
-    //    public void selectRadio() {
-    //        radioList.get(3).click();
-    //    }
-
-    //    public void selectCheckboxes() {
-    //        checkBoxesList.get(0).click();
-    //        checkBoxesList.get(2).click();
-    //    }
-
-    //    public String addProductToCompare(String name) {
-    //        wait.until(visibilityOfAllElements(products));
-    //        return addProductToCompare(new CheckboxesRadioDropboxComponent(driver, products.contains(name)));
-    //    }
-    //
-    //    private String addProductToCompare(CheckboxesRadioDropboxComponent productCard) {
-    //        productCard.clickToAddToCompareButton();
-    //        return productCard.getProductName();
-    //    }
-    //
-    //    public void clickToNavigateToCompareButton() {
-    //        new ModalWindowComponent(driver).clickToNavigateButton();
-    //    }
-    //
-    //    public List<String> getProductNames() {
-    //        return wait.until(visibilityOfAllElements(products))
-    //                   .stream()
-    //                   .map(product -> new CheckboxesRadioDropboxComponent(driver, product))
-    //                   .collect(Collectors.toList())
-    //                   .stream()
-    //                   .map(CheckboxesRadioDropboxComponent::getProductName)
-    //                   .collect(Collectors.toList());
-    //    }
 }

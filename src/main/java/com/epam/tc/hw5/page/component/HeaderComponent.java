@@ -10,9 +10,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HeaderComponent extends AbstractComponent {
+    private String loginName = "Roman";
+    private String loginPassword = "Jdi1234";
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;
+    @FindBy(id = "name")
+    private WebElement name;
+    @FindBy(id = "password")
+    private WebElement password;
+    @FindBy(id = "login-button")
+    private WebElement loginButton;
     @FindBy(className = "dropdown-toggle")
     private WebElement headerMenuService;
     @FindBy(xpath = "//*[text()='Different elements']")
@@ -22,9 +30,17 @@ public class HeaderComponent extends AbstractComponent {
         super(driver);
     }
 
-    public LoginComponent openUserAccountComponent() {
+//    public LoginComponent openUserAccountComponent() {
+//        wait.until(visibilityOf(userIcon)).click();
+//        return new LoginComponent(driver).openUserAccountComponent();
+//    }
+
+    public void login() {
         wait.until(visibilityOf(userIcon)).click();
-        return new LoginComponent(driver);
+        driver.switchTo().activeElement();
+        wait.until(visibilityOf(name)).sendKeys(loginName);
+        wait.until(visibilityOf(password)).sendKeys(loginPassword);
+        wait.until(visibilityOf(loginButton)).click();
     }
 
     public ServiceHeaderComponent openHeaderMenuServiceComponent() {
@@ -44,4 +60,9 @@ public class HeaderComponent extends AbstractComponent {
         clickOnHeaderMenuService();
         clickOnDifferentElementsItemFromHeaderMenuService();
     }
+
+//    clickButton(wait.until(visibilityOfAllElements(headerButtons)), "SERVICE");
+//        webDriver.switchTo().activeElement();
+//    clickButton(wait.until(visibilityOfAllElements(serviceMenuButtons)), "DIFFERENT ELEMENTS");
+//        return new DifferentElementsPage(webDriver);
 }
