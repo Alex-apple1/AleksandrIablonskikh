@@ -17,17 +17,13 @@ public class AbstractBasePage extends AbstractComponent {
         headerComponent = new HeaderComponent(driver);
     }
 
-    public HeaderComponent goToHeaderComponent() {
-        return headerComponent;
-    }
+    public String getTitle() { return driver.getTitle(); }
+
+    public HeaderComponent goToHeaderComponent() { return headerComponent; }
 
     public ServiceHeaderComponent openHeaderMenuService() {
         return headerComponent.openHeaderMenuServiceComponent();
     }
 
-//    public void clickOnHeaderMenuService() { headerComponent.clickOnHeaderMenuService(); }
-
-    protected void openFrontPage(String url) {
-        driver.navigate().to(BASE_URL + url);
-    }
+    protected void openFrontPage(String url) { driver.navigate().to(BASE_URL + url); }
 }

@@ -1,4 +1,4 @@
-Feature: Work with different elements on User Table Page
+Feature: Assert different elements on User Table Page
 
   Scenario Outline: User Table Page test
     Given I open JDI GitHub site
@@ -7,6 +7,7 @@ Feature: Work with different elements on User Table Page
     And I click on "User Table" button in Service dropdown
     Then "User Table" page should be opened
     And 6 Number Type Dropdowns should be displayed on Users Table on User Table Page
+    And 6 Usernames should be displayed on Users Table on on User Table Page
     And 6 Description texts under images should be displayed on Users Table on User Table Page
     And 6 checkboxes should be displayed on Users Table on User Table Page
     And User table should contain following values: number "<Number>", user "<User>", description "<Description>"
@@ -17,16 +18,9 @@ Feature: Work with different elements on User Table Page
       | 3      | Vladzimir        | Punisher                         |
       | 4      | Helen Bennett    | Captain America some description |
       | 5      | Yoshi Tannamuri  | Cyclope some description         |
-      | 6      | Giovanni Rovelli | Hulk some description             |
+      | 6      | Giovanni Rovelli | Hulk some description            |
 
-  Scenario Outline: Droplist should contain specified values
-    Given I open JDI GitHub site
-    And I login as user "Roman Iovlev"
-    And I click on "Service" button in Header
-    And I click on "User Table" button in Service dropdown
-    When I select 'vip' checkbox for "Sergey Ivan"
-    Then 1 log row has "Vip: condition changed to true" text in log section
-    And droplist should contain '<Dropdown Values>' values in column Type for user Roman
+    And droplist should contain values '<Dropdown Values>' in column Type for user Roman
     Examples:
       | Dropdown Values |
       | Admin           |

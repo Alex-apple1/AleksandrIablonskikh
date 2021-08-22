@@ -3,12 +3,8 @@ package com.epam.tc.hw5.cucumber.steps;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
 
 import com.epam.tc.hw5.cucumber.context.TestContext;
-import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.When;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class ActionStep extends AbstractStep {
 
@@ -38,27 +34,18 @@ public class ActionStep extends AbstractStep {
     //    Ex2
 
     @When("I click on {string} button in Header")
-    public void selectCheckboxesOnDifferentElementsPage(String serviceButton) {
-        differentElementsPage.selectCheckboxItems(water);
-        differentElementsPage.selectCheckboxItems(wind);
-
-        TestContext.getInstance().addTestObject("checkboxes", Arrays.asList(water, wind));
+    public void openServiceDropDownInHeader(String serviceItemInHeaderMenu) {
+        frontPage.goToHeaderComponent().clickOnServiceButtonInHeaderMenu(serviceItemInHeaderMenu);
     }
 
     @When("I click on {string} button in Service dropdown")
-    public void selectCheckboxesOnDifferentElementsPage(String userTableButton) {
-        differentElementsPage.selectCheckboxItems(water);
-        differentElementsPage.selectCheckboxItems(wind);
-
-        TestContext.getInstance().addTestObject("checkboxes", Arrays.asList(water, wind));
+    public void clickOnUserTableButton(String userTableButton) {
+        frontPage.goToHeaderComponent().goToItemFromHeaderMenuServiceChosen(userTableButton);
     }
 
     //    Ex3
-    @When("I select 'vip' checkbox for \"Sergey Ivan\"")
-    public void selectCheckboxesOnDifferentElementsPage(String userTableButton) {
-        differentElementsPage.selectCheckboxItems(water);
-        differentElementsPage.selectCheckboxItems(wind);
-
-        TestContext.getInstance().addTestObject("checkboxes", Arrays.asList(water, wind));
+    @When("I select 'vip' checkbox for {string}")
+    public void selectVipCheckboxOnUserTablePage(String sergeyIvanLink) {
+        userTablePage.selectVipCheckBoxOnUserTablePage(sergeyIvanLink);
     }
 }

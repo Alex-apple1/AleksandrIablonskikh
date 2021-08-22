@@ -16,9 +16,14 @@ public class GivenStep extends AbstractStep {
         frontPage.goToHeaderComponent().login();
     }
 
-    @Given("I open {string} through the header menu Service")
-    public void openDifferentElementsPageFromHeader(String category) {
-        frontPage.goToHeaderComponent().goToDifferentElementsPage();
+    @Given("I click on {string} button in Header")
+    public void openServiceDropDownInHeader(String serviceItemInHeaderMenu) {
+        frontPage.goToHeaderComponent().clickOnServiceButtonInHeaderMenu(serviceItemInHeaderMenu);
+    }
+
+    @Given("I click {string} through the header menu Service")
+    public void openCategoryFromHeaderMenuServiceDropdown(String dEServiceCategory) {
+        frontPage.goToHeaderComponent().goToItemFromHeaderMenuServiceChosen(dEServiceCategory);
     }
 
     //    Ex2
@@ -29,28 +34,26 @@ public class GivenStep extends AbstractStep {
     }
 
     @Given("I login as user {string}")
-    public void openHomePage(String loginPerson) {
-        frontPage.open();
+    public void loginAsRomanIovlev(String loginPerson) {
+        frontPage.goToHeaderComponent().login(loginPerson);
     }
 
     //    Ex3
     @Given("I open JDI GitHub site")
-    public void openHomePage() {
-        frontPage.open();
-    }
+    public void openJDIPage() { frontPage.open(); }
 
     @Given("I login as user {string}")
-    public void openHomePage(String loginPerson) {
-        frontPage.open();
+    public void loginAsRoman(String loginPerson)  {
+        frontPage.goToHeaderComponent().login(loginPerson);
     }
 
-    @Given("I click on \"Service\" button in Header")
-    public void openHomePage() {
-        frontPage.open();
+    @Given("I click on {string} button in Header")
+    public void openServiceDropDownFromHeader(String serviceItemInHeaderMenu) {
+        frontPage.goToHeaderComponent().clickOnServiceButtonInHeaderMenu(serviceItemInHeaderMenu);
     }
 
-    @Given("I click on \"User Table\" button in Service dropdown")
-    public void openHomePage() {
-        frontPage.open();
+    @Given("I click on {string} button in Service dropdown")
+    public void clickOnUserTableButton(String userTableButton) {
+        frontPage.goToHeaderComponent().goToItemFromHeaderMenuServiceChosen(userTableButton);
     }
 }

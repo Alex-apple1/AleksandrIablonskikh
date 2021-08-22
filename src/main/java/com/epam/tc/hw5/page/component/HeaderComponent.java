@@ -4,12 +4,16 @@ import static org.openqa.selenium.By.partialLinkText;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
+import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HeaderComponent extends AbstractComponent {
+
+    private static final String BASE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+
     private String loginName = "Roman";
     private String loginPassword = "Jdi1234";
 
@@ -25,15 +29,12 @@ public class HeaderComponent extends AbstractComponent {
     private WebElement headerMenuService;
     @FindBy(xpath = "//*[text()='Different elements']")
     private WebElement differentElementsItem;
+    @FindBy(xpath = "//*[text()='User Table ']")
+    private WebElement userTableItem;
 
     public HeaderComponent(WebDriver driver) {
         super(driver);
     }
-
-//    public LoginComponent openUserAccountComponent() {
-//        wait.until(visibilityOf(userIcon)).click();
-//        return new LoginComponent(driver).openUserAccountComponent();
-//    }
 
     public void login() {
         wait.until(visibilityOf(userIcon)).click();
@@ -43,26 +44,34 @@ public class HeaderComponent extends AbstractComponent {
         wait.until(visibilityOf(loginButton)).click();
     }
 
+    @SneakyThrows
+    public void login(String loginNameGiven) {
+        if (loginNameGiven == "Roman Iovlev") {
+            wait.until(visibilityOf(userIcon)).click();
+            driver.switchTo().activeElement();
+            wait.until(visibilityOf(name)).sendKeys(loginName);
+            wait.until(visibilityOf(password)).sendKeys(loginPassword);
+            wait.until(visibilityOf(loginButton)).click();
+        }
+        throw new Exception("Wrong Login name entered!");
+    }
+
     public ServiceHeaderComponent openHeaderMenuServiceComponent() {
         wait.until(visibilityOf(headerMenuService)).click();
         return new ServiceHeaderComponent(driver);
     }
 
-    public void clickOnHeaderMenuService() {
-        headerMenuService.click();
+    public void clickOnServiceButtonInHeaderMenu(String buttonInHeaderMenu) {
+        if (buttonInHeaderMenu.contains("Service")) {
+            wait.until(visibilityOf(headerMenuService)).click();
+        } else driver.navigate().to(BASE_URL);
+
     }
 
-    public void clickOnDifferentElementsItemFromHeaderMenuService() {
-        differentElementsItem.click();
+    public void goToItemFromHeaderMenuServiceChosen(String serviceCategory) {
+        wait.until(visibilityOf(headerMenuService)).click();
+        if (serviceCategory.contains("Different Elements")) {
+            wait.until(visibilityOf(differentElementsItem)).click();
+        } else wait.until(visibilityOf(userTableItem)).click();
     }
-
-    public void goToDifferentElementsPage() {
-        clickOnHeaderMenuService();
-        clickOnDifferentElementsItemFromHeaderMenuService();
-    }
-
-//    clickButton(wait.until(visibilityOfAllElements(headerButtons)), "SERVICE");
-//        webDriver.switchTo().activeElement();
-//    clickButton(wait.until(visibilityOfAllElements(serviceMenuButtons)), "DIFFERENT ELEMENTS");
-//        return new DifferentElementsPage(webDriver);
 }
