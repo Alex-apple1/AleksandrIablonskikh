@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
-        <testng.suite.file>${testng.configs.path}/hw4.class.suite.xml</testng.suite.file>
+        <testng.suite.file>${testng.configs.path}/hw6.grid.suite.xml</testng.suite.file>
 
         <checkstyle.version>8.42</checkstyle.version>
         <testng.version>7.4.0</testng.version>
@@ -87,12 +87,12 @@
 
     <profiles>
         <profile>
-            <id>runHW4Tests</id>
+            <id>runHW6Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/hw4.class.suite.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/hw6.grid.suite.xml</maven-surefire-plugin.suiteXmlFile>
 <!--                <testng.suite.file>${testng.configs.path}/testng/hw4.class.suite.xml</testng.suite.file>-->
             </properties>
         </profile>
@@ -147,6 +147,30 @@
             <version>2.13.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.0.0-alpha-7</version>
+            <scope>compile</scope>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.assertj</groupId>-->
+<!--            <artifactId>assertj-core</artifactId>-->
+<!--            <version>3.4.1</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <reporting>

@@ -1,7 +1,7 @@
-package com.epam.tc.hw4.entities;
+package com.epam.tc.hw6.entities;
 
-import com.epam.tc.hw4.pages.DifferentElementsPage;
-import com.epam.tc.hw4.pages.FrontPage;
+import com.epam.tc.hw6.pages.DifferentElementsPage;
+import com.epam.tc.hw6.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-public class HW4StarterClass {
+public class HW6StarterClass {
     protected WebDriver webDriver;
     protected WebElement webElement;
     protected DifferentElementsPage differentElementsPage;

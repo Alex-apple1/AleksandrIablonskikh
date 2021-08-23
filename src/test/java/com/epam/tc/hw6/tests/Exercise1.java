@@ -1,9 +1,9 @@
-package com.epam.tc.tests;
+package com.epam.tc.hw6.tests;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw4.pages.FrontPage;
+import com.epam.tc.hw6.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -14,10 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Exercise1 {
@@ -46,8 +44,8 @@ public class Exercise1 {
     @Test
     @Severity(SeverityLevel.NORMAL)
     @Feature("Front page tests")
-    @Story("Ugly sad story")
-    public void failExerciseTest() throws InterruptedException {
+    @Story("Marvel story")
+    public void firstExerciseTest() throws InterruptedException {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
 
@@ -73,8 +71,8 @@ public class Exercise1 {
 
         frontPage.assertUserAccountName();
 
-        step("5. Assert that there are 4 items on the header section are displayed\n"
-            + "        //        and they have proper texts");
+        step("5. Assert that there are 4 items on the header section are displayed "
+            + "and they have proper texts");
 
         frontPage.assertHeaderItemHome();
         frontPage.assertHeaderItemContactForm();
@@ -100,7 +98,7 @@ public class Exercise1 {
 
         step("10. Switch to original window back");
 
-        //        webDriver.switchTo().defaultContent();
+        webDriver.switchTo().defaultContent();
 
         step("11. Assert that there are 5 items in the Left Section are displayed and they have proper text");
 
