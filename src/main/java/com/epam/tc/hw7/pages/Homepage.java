@@ -16,10 +16,10 @@ public class Homepage extends WebPage {
     public LoginForm loginForm;
 
     @UI("#user-name")
-    Label userName;
+    public static Label userName;
 
     @UI(".uui-navigation.nav.navbar-nav.m-l8")
-    Menu headerButtons;
+    public static Menu headerButtons;
 
     public void selectMetalsAndColorsPage() {
         headerButtons.select("Metals & Colors");

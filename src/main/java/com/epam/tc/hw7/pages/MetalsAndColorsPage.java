@@ -25,10 +25,10 @@ public class MetalsAndColorsPage extends WebPage {
     public static MetalsAndColorsForm metalsAndColorsForm;
 
     @UI(".results li")
-    private List<UIElement> result;
+    private List<UIElement> actualResult;
 
-    public List<String> getResult() {
-        return result.stream().map(UIElement::getText).collect(Collectors.toList());
+    public List<String> getActualResult() {
+        return actualResult.stream().map(UIElement::getText).collect(Collectors.toList());
     }
 
     public List<String> getExpectedResultFromMetalsAndColorsData(MetalsAndColorsData data) {

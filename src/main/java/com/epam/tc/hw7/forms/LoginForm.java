@@ -9,19 +9,19 @@ import com.epam.tc.hw7.entities.User;
 public class LoginForm extends Form<User> {
 
     @UI("#user-icon")
-    Button userIcon;
+    public static Button userIcon;
 
     @UI("#name")
-    TextField name;
+    public static TextField name;
 
     @UI("#password")
-    TextField password;
+    public static TextField password;
 
     @UI("#login-button")
-    Button loginButton;
+    public static Button loginButton;
 
     @UI(".logout")
-    Button logOut;
+    public static Button logOut;
 
     public void login(User user) {
         userIcon.click();

@@ -14,7 +14,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class JdiSiteTest {
+public class JdiSiteTests {
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
@@ -27,7 +27,7 @@ public class JdiSiteTest {
     }
 
     @Test(dataProvider = "metalsAndColorsData", dataProviderClass = DataProviders.class)
-    public void metalsAndColorsTest(MetalsAndColorsData metalsAndColors) {
+    public void metalsAndColorsTest(MetalsAndColorsData metalsAndColorsData) {
         homePage.open();
         homePage.login(ROMAN);
         homePage.checkUserLoggedIn(ROMAN);
@@ -35,11 +35,11 @@ public class JdiSiteTest {
         homePage.selectMetalsAndColorsPage();
         metalsAndColorsPage.checkOpened();
 
-        metalsAndColorsForm.fill(metalsAndColors);
+        metalsAndColorsForm.fill(metalsAndColorsData);
         metalsAndColorsForm.submit();
 
-        assertEquals(metalsAndColorsPage.getResult(),
-            metalsAndColorsPage.getExpectedResultFromMetalsAndColorsData(metalsAndColors));
+        assertEquals(metalsAndColorsPage.getActualResult(),
+            metalsAndColorsPage.getExpectedResultFromMetalsAndColorsData(metalsAndColorsData));
 
         metalsAndColorsPage.logout();
     }

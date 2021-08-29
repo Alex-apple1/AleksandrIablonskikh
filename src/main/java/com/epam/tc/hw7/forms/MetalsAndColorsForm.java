@@ -34,7 +34,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     public static Dropdown metals;
 
     @UI("#vegetables")
-    public Button vegetable;
+    Button vegetable;
 
     @JDropdown(root = "div[ui=droplist]",
                value = ".filter-option",
@@ -43,21 +43,21 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     public static Dropdown vegetablesMultiDropdown;
 
     @UI("#g7")
-    Checkbox vegetablesCheckBox;
+    public static Checkbox vegetablesCheckBox;
 
     @UI("[id=submit-button]")
-    public Button submitButton;
+    public static Button submitButton;
 
     @Override
-    public void fill(MetalsAndColorsData metalsAndColors) {
-        customRadioOdd.select(metalsAndColors.getSummary().get(0));
-        customRadioEven.select(metalsAndColors.getSummary().get(1));
-        metalsAndColors.getElements().forEach(elementsChecklist::select);
-        colors.select(metalsAndColors.getColor());
-        metals.select(metalsAndColors.getMetals());
+    public void fill(MetalsAndColorsData metalsAndColorsData) {
+        customRadioOdd.select(metalsAndColorsData.getSummary().get(0));
+        customRadioEven.select(metalsAndColorsData.getSummary().get(1));
+        metalsAndColorsData.getElements().forEach(elementsChecklist::select);
+        colors.select(metalsAndColorsData.getColor());
+        metals.select(metalsAndColorsData.getMetals());
         vegetable.click();
         vegetablesCheckBox.uncheck();
-        metalsAndColors.getVegetables().forEach(vegetablesMultiDropdown::select);
+        metalsAndColorsData.getVegetables().forEach(vegetablesMultiDropdown::select);
     }
 
     @Override
