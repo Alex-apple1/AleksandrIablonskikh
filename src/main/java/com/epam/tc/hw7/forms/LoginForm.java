@@ -16,7 +16,7 @@ public class LoginForm extends Form<User> {
 
     @UI("#password")
     TextField password;
-    //
+
     @UI("#login-button")
     Button loginButton;
 
