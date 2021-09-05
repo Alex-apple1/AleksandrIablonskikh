@@ -22,6 +22,11 @@
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
     <junit.version>4.13.2</junit.version>
+    <selenium-support.version>3.141.59</selenium-support.version>
+    <selenium-chrome-driver.version>4.0.0-alpha-7</selenium-chrome-driver.version>
+    <selenium-api.version>4.0.0-alpha-7</selenium-api.version>
+    <webdrivermanager.version>4.4.3</webdrivermanager.version>
+    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
   </properties>
 
   <build>
@@ -29,7 +34,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.2</version>
+        <version>${maven-checkstyle-plugin.version}</version>
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
@@ -88,7 +93,7 @@
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
-      <version>4.4.3</version>
+      <version>${webdrivermanager.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -106,19 +111,19 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-api</artifactId>
-      <version>4.0.0-alpha-7</version>
+      <version>${selenium-api.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-chrome-driver</artifactId>
-      <version>4.0.0-alpha-7</version>
+      <version>${selenium-chrome-driver.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-support</artifactId>
-      <version>3.141.59</version>
+      <version>${selenium-support.version}</version>
     </dependency>
 
   </dependencies>

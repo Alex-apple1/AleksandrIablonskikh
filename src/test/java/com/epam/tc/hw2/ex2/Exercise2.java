@@ -2,35 +2,16 @@ package com.epam.tc.hw2.ex2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.epam.tc.hw2.ParentClass;
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Exercise2 {
-    private WebDriver webDriver;
-
-    private WebElement webElement;
-
-    @BeforeTest
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-    }
-
-    @AfterTest
-    public void clear() {
-        webDriver.quit();
-    }
+public class Exercise2 extends ParentClass {
 
     @Test
     public void firstExerciseTest() throws InterruptedException {
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
 
         //        1. Open test site by URL
 
@@ -93,33 +74,31 @@ public class Exercise2 {
         //for radio button there is a log row and value is corresponded to the status of radio button
         //for dropdown there is a log row and value is corresponded to the selected value.
 
-        webElement = webDriver.findElement(By.xpath("//*[@id='mCSB_2_container']/section[1]/div[2]/div/ul/li[4]"));
+        webElement = webDriver.findElement(By.cssSelector(".info-panel-body li:nth-of-type(4)"));
         String waterCondition = webElement.getText();
         assertThat(waterCondition)
             .as("Water condition log")
             .contains("Water: condition changed to true");
 
-        webElement = webDriver.findElement(By.xpath("//*[@id='mCSB_2_container']/section[1]/div[2]/div/ul/li[3]"));
+        webElement = webDriver.findElement(By.cssSelector(".info-panel-body li:nth-of-type(3)"));
         String windCondition = webElement.getText();
         assertThat(windCondition)
             .as("Wind condition log")
             .contains("Wind: condition changed to true");
 
-        webElement = webDriver.findElement(By.xpath("//*[@id='mCSB_2_container']/section[1]/div[2]/div/ul/li[2]"));
+        webElement = webDriver.findElement(By.cssSelector(".info-panel-body li:nth-of-type(2)"));
         String metalCondition = webElement.getText();
         assertThat(metalCondition)
             .as("Metal condition log")
             .contains("metal: value changed to Selen");
 
-        webElement = webDriver.findElement(By.xpath("//*[@id='mCSB_2_container']/section[1]/div[2]/div/ul/li[1]"));
+        webElement = webDriver.findElement(By.cssSelector(".info-panel-body li:nth-of-type(1)"));
         String colorCondition = webElement.getText();
         assertThat(colorCondition)
             .as("Color condition log")
             .contains("Colors: value changed to Yellow");
 
         //        10. Close Browser
-
-        webDriver.close();
     }
 }
 
