@@ -9,7 +9,7 @@
       <class name="com.epam.tc.hw4.tests.Exercise1"/>
       <class name="com.epam.tc.hw4.tests.Exercise2"/>
       <class name="com.epam.tc.tests.Exercise1"/>
-      <!--            <class name="com.epam.tc.hw4.entities.Attachment"/>-->
+      <class name="com.epam.tc.hw4.entities.Attachment"/>
     </classes>
   </test>
 </suite>

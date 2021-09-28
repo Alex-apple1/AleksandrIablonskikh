@@ -10,7 +10,7 @@ public class ScreenshotListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        //        ITestListener.super.onTestFailure(result);
+        ITestListener.super.onTestFailure(result);
         Object driver = result.getTestContext().getAttribute("driver");
 
         if (driver != null) {

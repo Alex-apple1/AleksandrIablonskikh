@@ -24,6 +24,12 @@
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
         <lombok.version>1.18.20</lombok.version>
+        <allure-java-commons.version>2.13.2</allure-java-commons.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <selenium-chrome-driver.version>4.0.0-alpha-7</selenium-chrome-driver.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     </properties>
 
     <build>
@@ -31,7 +37,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
@@ -103,7 +109,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version>
+            <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -124,16 +130,16 @@
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
-            <version>4.0.0-alpha-7</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.seleniumhq.selenium</groupId>-->
+<!--            <artifactId>selenium-chrome-driver</artifactId>-->
+<!--            <version>${selenium-chrome-driver.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${selenium-java.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -144,7 +150,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
-            <version>2.13.2</version>
+            <version>${allure-java-commons.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -155,7 +161,7 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${allure-maven.version}</version>
                 <configuration>
                     <reportVersion>${allure.version}</reportVersion>
                 </configuration>

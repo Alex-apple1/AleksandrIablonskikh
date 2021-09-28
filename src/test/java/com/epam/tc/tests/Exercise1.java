@@ -60,7 +60,7 @@ public class Exercise1 {
         step("2. Assert Browser title");
 
         assertThat(webDriver.getTitle())
-            .as("Opening Home Page").isEqualTo("Home Page");
+            .as("Opening Home Page").isEqualTo("Home Page РР");
 
         step("3. Perform log in");
 

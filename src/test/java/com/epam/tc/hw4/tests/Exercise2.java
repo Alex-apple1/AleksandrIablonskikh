@@ -8,6 +8,7 @@ import com.epam.tc.hw4.pages.DifferentElementsPage;
 import com.epam.tc.hw4.pages.FrontPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -47,6 +48,7 @@ public class Exercise2 {
 
     @Test
     @Severity(SeverityLevel.MINOR)
+    @Epic("Some really important Epic")
     @Feature("Different elements page tests")
     @Story("DC story")
     public void secondExerciseTest() throws InterruptedException {

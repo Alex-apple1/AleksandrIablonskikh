@@ -3,6 +3,7 @@ package com.epam.tc.hw4.pages;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.epam.tc.hw4.entities.HW4StarterClass;
+import io.qameta.allure.Step;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,71 +76,85 @@ public class FrontPage {
         PageFactory.initElements(webDriver, this);
     }
 
+    @Step
     public void clickOnHeaderMenuService() {
         headerMenuService.click();
     }
 
+    @Step
     public void clickOnDifferentElementsItemFromHeaderMenuService() {
         differentElementsItem.click();
     }
 
+    @Step
     public void goToDifferentElementsPage() {
         clickOnHeaderMenuService();
         clickOnDifferentElementsItemFromHeaderMenuService();
     }
 
+    @Step
     public void findUserIconAndClick() {
         userIcon.click();
     }
 
+    @Step
     public void fillUserNameIn() {
         name.sendKeys(loginName);
     }
 
+    @Step
     public void fillUserPasswordIn() {
         password.sendKeys(loginPassword);
     }
 
+    @Step
     public void pressLoginButton() {
         loginButton.click();
     }
 
+    @Step
     public void assertUserAccountName() {
         assertThat(userAccountName.getText().toUpperCase())
             .as("Username")
             .isEqualTo(expectedAccountName);
     }
 
+    @Step
     public void assertHeaderItemHome() {
         assertThat(headerItemHome.getText())
             .as("Header item Home")
             .isEqualToIgnoringCase(expectedHeaderItemHome);
     }
 
+    @Step
     public void assertHeaderItemContactForm() {
         assertThat(headerItemContactForm.getText())
             .as("Header item Contact form")
             .isEqualToIgnoringCase(expectedHeaderItemContactForm);
     }
 
+    @Step
     public void assertHeaderItemService() {
         assertThat(headerItemService.getText())
             .as("Header item Service")
             .isEqualToIgnoringCase(expectedHeaderItemService);
     }
 
+    @Step
     public void assertHeaderItemMetalsAndColors() {
         assertThat(headerItemMetalsAndColors.getText())
             .as("Header item Metals & Colors")
             .isEqualToIgnoringCase(expectedHeaderItemMetalsAndColors);
     }
 
+    @Step
     public void switchToIFrameAndCheckTheButton() {
         assertThat(frameButtonExists.isEnabled())
             .as("Button frame exists")
             .isTrue();
     }
 
+    @Step
     public void assertIndexPageFourBottomPictures() {
         assertThat(indexPageFourBottomPictures.get(0).isDisplayed()).as("Picture is shown").isTrue();
         assertThat(indexPageFourBottomPictures.get(1).isDisplayed()).as("Picture is shown").isTrue();
@@ -147,6 +162,7 @@ public class FrontPage {
         assertThat(indexPageFourBottomPictures.get(3).isDisplayed()).as("Picture is shown").isTrue();
     }
 
+    @Step
     public void assertIndexPageFourBottomTexts() {
         assertThat(indexPageFourBottomTexts.get(0).getText()).isEqualTo("To include good practices\n"
             + "and ideas from successful\n"
@@ -160,36 +176,42 @@ public class FrontPage {
             + "wish to get more…");
     }
 
+    @Step
     public void assertIFrameExist() {
         assertThat(iframeExist.isEnabled())
             .as("Iframe exist")
             .isTrue();
     }
 
+    @Step
     public void assertLeftSectionHomeText() {
         assertThat(leftSectionHomeText.getText())
             .as("Home text in the Left Section")
             .isEqualTo("Home");
     }
 
+    @Step
     public void assertLeftSectionContactFormText() {
         assertThat(leftSectionContactFormText.getText())
             .as("Contact form text in the Left Section")
             .isEqualTo("Contact form");
     }
 
+    @Step
     public void assertLeftSectionServiceText() {
         assertThat(leftSectionServiceText.getText())
             .as("Service text in the Left Section")
             .isEqualTo("Service");
     }
 
+    @Step
     public void assertLeftSectionMetalsAndColorsText() {
         assertThat(leftSectionMetalsAndColorsText.getText())
             .as("Metals & Colors text in the Left Section")
             .isEqualTo("Metals & Colors");
     }
 
+    @Step
     public void assertLeftSectionElementsPacksText() {
         assertThat(leftSectionElementsPacksText.getText())
             .as("Elements packs text in the Left Section")
