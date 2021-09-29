@@ -2,7 +2,6 @@ package com.epam.tc.hw4.pages;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw4.entities.HW4StarterClass;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.openqa.selenium.WebDriver;

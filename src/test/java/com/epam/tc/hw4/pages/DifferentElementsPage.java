@@ -2,7 +2,7 @@ package com.epam.tc.hw4.pages;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.epam.tc.hw4.entities.HW4StarterClass;
+import io.qameta.allure.Step;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,38 +32,45 @@ public class DifferentElementsPage {
         PageFactory.initElements(webDriver, this);
     }
 
+    @Step
     public void assertCheckboxWaterLogRow() {
         assertThat(waterCondition.getText())
             .as("Water condition log")
             .contains("Water: condition changed to true");
     }
 
+    @Step
     public void assertCheckboxWindLogRow() {
         assertThat(windCondition.getText())
             .as("Wind condition log")
             .contains("Wind: condition changed to true");
     }
 
+    @Step
     public void assertRadioButtonMetalLogRow() {
         assertThat(metalCondition.getText())
             .as("Metal condition log")
             .contains("metal: value changed to Selen");
     }
 
+    @Step
     public void assertDropdownYellowColorLogRow() {
         assertThat(colorCondition.getText())
             .as("Color condition log")
             .contains("Colors: value changed to Yellow");
     }
 
+    @Step
     public void selectYellowInDropdown() {
         dropdown.click();
     }
 
+    @Step
     public void selectRadio() {
         radioList.get(3).click();
     }
 
+    @Step
     public void selectCheckboxes() {
         checkBoxesList.get(0).click();
         checkBoxesList.get(2).click();
